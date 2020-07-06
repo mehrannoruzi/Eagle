@@ -1,0 +1,242 @@
+<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+<TemplateData>
+<Name>Dashboard</Name>
+<Description>&lt;Hillavas Eagle Base Project In .Net Core&gt;</Description>
+<ProjectType>CSharp</ProjectType>
+<ProjectSubType></ProjectSubType>
+<SortOrder>1</SortOrder>
+<CreateNewFolder>true</CreateNewFolder>
+<DefaultName>Dashboard</DefaultName>
+<ProvideDefaultName>true</ProvideDefaultName>
+<LocationField>Enabled</LocationField>
+<Hidden>true</Hidden>
+<EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+<CreateInPlace>true</CreateInPlace>
+</TemplateData>
+<TemplateContent>
+<Project TargetFileName="$ext_safeprojectname$.Dashboard.csproj" File="Eagle.Dashboard.csproj" ReplaceParameters="true">
+<Folder Name="Components" TargetFolderName="Components">
+<ProjectItem ReplaceParameters="true" TargetFileName="SidebarComponent.cs">SidebarComponent.cs</ProjectItem>
+</Folder>
+<Folder Name="Controllers" TargetFolderName="Controllers">
+<ProjectItem ReplaceParameters="true" TargetFileName="ActionController.cs">ActionController.cs</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="ActionInRoleController.cs">ActionInRoleController.cs</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="AuthController.cs">AuthController.cs</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="ErrorController.cs">ErrorController.cs</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="RoleController.cs">RoleController.cs</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="UserController.cs">UserController.cs</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="UserInRoleController.cs">UserInRoleController.cs</ProjectItem>
+</Folder>
+<Folder Name="Models" TargetFolderName="Models">
+<ProjectItem ReplaceParameters="true" TargetFileName="Modal.cs">Modal.cs</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="SignInModel.cs">SignInModel.cs</ProjectItem>
+</Folder>
+<Folder Name="Properties" TargetFolderName="Properties">
+<ProjectItem ReplaceParameters="true" TargetFileName="launchSettings.json">launchSettings.json</ProjectItem>
+</Folder>
+<Folder Name="Resources" TargetFolderName="Resources">
+<ProjectItem ReplaceParameters="true" TargetFileName="Strings.Designer.cs">Strings.Designer.cs</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="Strings.resx">Strings.resx</ProjectItem>
+</Folder>
+<Folder Name="Temp" TargetFolderName="Temp">
+<ProjectItem ReplaceParameters="true" TargetFileName="AclSeed.cs">AclSeed.cs</ProjectItem>
+</Folder>
+<Folder Name="Views" TargetFolderName="Views">
+<Folder Name="Action" TargetFolderName="Action">
+<Folder Name="Partials" TargetFolderName="Partials">
+<ProjectItem ReplaceParameters="true" TargetFileName="_Entity.cshtml">_Entity.cshtml</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="_Filters.cshtml">_Filters.cshtml</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="_List.cshtml">_List.cshtml</ProjectItem>
+</Folder>
+<ProjectItem ReplaceParameters="true" TargetFileName="Manage.cshtml">Manage.cshtml</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="ProfileInfo.cshtml">ProfileInfo.cshtml</ProjectItem>
+</Folder>
+<Folder Name="ActionInRole" TargetFolderName="ActionInRole">
+<Folder Name="Partials" TargetFolderName="Partials">
+<ProjectItem ReplaceParameters="true" TargetFileName="_Entity.cshtml">_Entity.cshtml</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="_ListViaAction.cshtml">_ListViaAction.cshtml</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="_ListViaRole.cshtml">_ListViaRole.cshtml</ProjectItem>
+</Folder>
+</Folder>
+<Folder Name="Auth" TargetFolderName="Auth">
+<Folder Name="Partials" TargetFolderName="Partials">
+<ProjectItem ReplaceParameters="true" TargetFileName="_NewPassword.cshtml">_NewPassword.cshtml</ProjectItem>
+</Folder>
+<ProjectItem ReplaceParameters="true" TargetFileName="RecoverPasswrod.cshtml">RecoverPasswrod.cshtml</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="SignIn.cshtml">SignIn.cshtml</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="_Layout.cshtml">_Layout.cshtml</ProjectItem>
+</Folder>
+<Folder Name="Error" TargetFolderName="Error">
+<ProjectItem ReplaceParameters="true" TargetFileName="Details.cshtml">Details.cshtml</ProjectItem>
+</Folder>
+<Folder Name="Role" TargetFolderName="Role">
+<Folder Name="Partials" TargetFolderName="Partials">
+<ProjectItem ReplaceParameters="true" TargetFileName="_Entity.cshtml">_Entity.cshtml</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="_Filters.cshtml">_Filters.cshtml</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="_List.cshtml">_List.cshtml</ProjectItem>
+</Folder>
+<ProjectItem ReplaceParameters="true" TargetFileName="Manage.cshtml">Manage.cshtml</ProjectItem>
+</Folder>
+<Folder Name="Shared" TargetFolderName="Shared">
+<Folder Name="Components" TargetFolderName="Components">
+<Folder Name="Sidebar" TargetFolderName="Sidebar">
+<ProjectItem ReplaceParameters="true" TargetFileName="Default.cshtml">Default.cshtml</ProjectItem>
+</Folder>
+</Folder>
+<Folder Name="Partials" TargetFolderName="Partials">
+<ProjectItem ReplaceParameters="true" TargetFileName="_LayoutFooter.cshtml">_LayoutFooter.cshtml</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="_LayoutHeader.cshtml">_LayoutHeader.cshtml</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="_ListHeader.cshtml">_ListHeader.cshtml</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="_Modal.cshtml">_Modal.cshtml</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="_Navbar.cshtml">_Navbar.cshtml</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="_Pagination.cshtml">_Pagination.cshtml</ProjectItem>
+</Folder>
+<ProjectItem ReplaceParameters="true" TargetFileName="_Layout.cshtml">_Layout.cshtml</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="_LayoutManage.cshtml">_LayoutManage.cshtml</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="_ValidationScriptsPartial.cshtml">_ValidationScriptsPartial.cshtml</ProjectItem>
+</Folder>
+<Folder Name="User" TargetFolderName="User">
+<Folder Name="Partials" TargetFolderName="Partials">
+<ProjectItem ReplaceParameters="true" TargetFileName="_Entity.cshtml">_Entity.cshtml</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="_Filters.cshtml">_Filters.cshtml</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="_List.cshtml">_List.cshtml</ProjectItem>
+</Folder>
+<ProjectItem ReplaceParameters="true" TargetFileName="Manage.cshtml">Manage.cshtml</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="ProfileInfo.cshtml">ProfileInfo.cshtml</ProjectItem>
+</Folder>
+<Folder Name="UserInRole" TargetFolderName="UserInRole">
+<Folder Name="Partials" TargetFolderName="Partials">
+<ProjectItem ReplaceParameters="true" TargetFileName="_Entity.cshtml">_Entity.cshtml</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="_List.cshtml">_List.cshtml</ProjectItem>
+</Folder>
+</Folder>
+<ProjectItem ReplaceParameters="true" TargetFileName="_ViewImports.cshtml">_ViewImports.cshtml</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="_ViewStart.cshtml">_ViewStart.cshtml</ProjectItem>
+</Folder>
+<Folder Name="wwwroot" TargetFolderName="wwwroot">
+<Folder Name="Fonts" TargetFolderName="Fonts">
+<ProjectItem ReplaceParameters="true" TargetFileName="iransans.eot">iransans.eot</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="iransans.ttf">iransans.ttf</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="Material-Design-Iconic-Font.eot">Material-Design-Iconic-Font.eot</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="Material-Design-Iconic-Font.svg">Material-Design-Iconic-Font.svg</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="Material-Design-Iconic-Font.ttf">Material-Design-Iconic-Font.ttf</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="Material-Design-Iconic-Font.woff">Material-Design-Iconic-Font.woff</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="Material-Design-Iconic-Font.woff2">Material-Design-Iconic-Font.woff2</ProjectItem>
+</Folder>
+<Folder Name="Images" TargetFolderName="Images">
+<Folder Name="bootstrap-colorpicker" TargetFolderName="bootstrap-colorpicker">
+<ProjectItem ReplaceParameters="true" TargetFileName="alpha.png">alpha.png</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="hue.png">hue.png</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="saturation.png">saturation.png</ProjectItem>
+</Folder>
+<Folder Name="Failed" TargetFolderName="Failed">
+<ProjectItem ReplaceParameters="true" TargetFileName="error.png">error.png</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="notfound.png">notfound.png</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="unauthorized.png">unauthorized.png</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="under-deployment.png">under-deployment.png</ProjectItem>
+</Folder>
+<Folder Name="FileTypes" TargetFolderName="FileTypes">
+<ProjectItem ReplaceParameters="true" TargetFileName="archive.png">archive.png</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="audio.png">audio.png</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="document.png">document.png</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="unknown.png">unknown.png</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="video.png">video.png</ProjectItem>
+</Folder>
+<ProjectItem ReplaceParameters="true" TargetFileName="chosen-sprite.png">chosen-sprite.png</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="green.png">green.png</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="loadover.png">loadover.png</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="logo.png">logo.png</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="marker.png">marker.png</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="no-image.jpeg">no-image.jpeg</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="user.png">user.png</ProjectItem>
+</Folder>
+<Folder Name="Scripts" TargetFolderName="Scripts">
+<Folder Name="App" TargetFolderName="App">
+<Folder Name="Action" TargetFolderName="Action">
+<ProjectItem ReplaceParameters="true" TargetFileName="manage.js">manage.js</ProjectItem>
+</Folder>
+<Folder Name="Auth" TargetFolderName="Auth">
+<ProjectItem ReplaceParameters="true" TargetFileName="recover-password.js">recover-password.js</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="signin.js">signin.js</ProjectItem>
+</Folder>
+<Folder Name="Role" TargetFolderName="Role">
+<ProjectItem ReplaceParameters="true" TargetFileName="manage.js">manage.js</ProjectItem>
+</Folder>
+<ProjectItem ReplaceParameters="true" TargetFileName="app.js">app.js</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="app.min.js">app.min.js</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="common.js">common.js</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="list.js">list.js</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="modal.js">modal.js</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="plugins.js">plugins.js</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="template.js">template.js</ProjectItem>
+</Folder>
+<Folder Name="Libs" TargetFolderName="Libs">
+<ProjectItem ReplaceParameters="true" TargetFileName="bootstrap.min.js">bootstrap.min.js</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="dropzone.js">dropzone.js</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="footable.all.min.js">footable.all.min.js</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="icheck-1.0.2.min.js">icheck-1.0.2.min.js</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="jquery-3.1.1.min.js">jquery-3.1.1.min.js</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="jquery.slimscroll.min.js">jquery.slimscroll.min.js</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="jquery.validate.min.js">jquery.validate.min.js</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="jquery.validate.unobtrusive.min.js">jquery.validate.unobtrusive.min.js</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="libs.js">libs.js</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="libs.min.js">libs.min.js</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="libs2.js">libs2.js</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="libs2.min.js">libs2.min.js</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="loadover.js">loadover.js</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="metis-menu.js">metis-menu.js</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="pace.min.js">pace.min.js</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="popper.min.js">popper.min.js</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="select2.js">select2.js</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="sweetalert.js">sweetalert.js</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="toastr.js">toastr.js</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="zebra-date-picker.js">zebra-date-picker.js</ProjectItem>
+</Folder>
+</Folder>
+<Folder Name="Styles" TargetFolderName="Styles">
+<Folder Name="App" TargetFolderName="App">
+<Folder Name="Auth" TargetFolderName="Auth">
+<ProjectItem ReplaceParameters="true" TargetFileName="signin.css">signin.css</ProjectItem>
+</Folder>
+<Folder Name="Role" TargetFolderName="Role">
+<ProjectItem ReplaceParameters="true" TargetFileName="manage.css">manage.css</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="manage.min.css">manage.min.css</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="manage.scss">manage.scss</ProjectItem>
+</Folder>
+<ProjectItem ReplaceParameters="true" TargetFileName="app.css">app.css</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="app.min.css">app.min.css</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="common.css">common.css</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="common.min.css">common.min.css</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="common.scss">common.scss</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="fa.css">fa.css</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="fa.min.css">fa.min.css</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="fa.scss">fa.scss</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="template.css">template.css</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="template.min.css">template.min.css</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="template.scss">template.scss</ProjectItem>
+</Folder>
+<Folder Name="Libs" TargetFolderName="Libs">
+<ProjectItem ReplaceParameters="true" TargetFileName="animate.css">animate.css</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="bootstrap.min.css">bootstrap.min.css</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="dropzone.css">dropzone.css</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="footable.core.css">footable.core.css</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="icheck.css">icheck.css</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="libs.css">libs.css</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="libs.min.css">libs.min.css</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="material-design-iconic-font.min.css">material-design-iconic-font.min.css</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="select2.css">select2.css</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="sweetalert.css">sweetalert.css</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="toastr.css">toastr.css</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="zebra-date-picker.css">zebra-date-picker.css</ProjectItem>
+</Folder>
+</Folder>
+</Folder>
+<ProjectItem ReplaceParameters="true" TargetFileName="appsettings.Development.json">appsettings.Development.json</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="appsettings.json">appsettings.json</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="bundleconfig.json">bundleconfig.json</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="Eagle.Dashboard.csproj">Eagle.Dashboard.csproj</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="Program.cs">Program.cs</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="Startup.cs">Startup.cs</ProjectItem>
+</Project
+></TemplateContent>
+</VSTemplate>

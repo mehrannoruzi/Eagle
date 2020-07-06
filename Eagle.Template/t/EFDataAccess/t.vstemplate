@@ -1,0 +1,47 @@
+<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+<TemplateData>
+<Name>EFDataAccess</Name>
+<Description>&lt;Hillavas Eagle Base Project In .Net Core&gt;</Description>
+<ProjectType>CSharp</ProjectType>
+<ProjectSubType></ProjectSubType>
+<SortOrder>1</SortOrder>
+<CreateNewFolder>true</CreateNewFolder>
+<DefaultName>EFDataAccess</DefaultName>
+<ProvideDefaultName>true</ProvideDefaultName>
+<LocationField>Enabled</LocationField>
+<Hidden>true</Hidden>
+<EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+<CreateInPlace>true</CreateInPlace>
+</TemplateData>
+<TemplateContent>
+<Project TargetFileName="$ext_safeprojectname$.EFDataAccess.csproj" File="Eagle.EFDataAccess.csproj" ReplaceParameters="true">
+<Folder Name="Context" TargetFolderName="Context">
+<ProjectItem ReplaceParameters="true" TargetFileName="AuthDbContext.cs">AuthDbContext.cs</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="DbContextInterceptors.cs">DbContextInterceptors.cs</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="EfDbContext.cs">EfDbContext.cs</ProjectItem>
+</Folder>
+<Folder Name="Migrations" TargetFolderName="Migrations">
+<ProjectItem ReplaceParameters="true" TargetFileName="20200122070112_init.cs">20200122070112_init.cs</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="20200122070112_init.Designer.cs">20200122070112_init.Designer.cs</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="AuthDbContextModelSnapshot.cs">AuthDbContextModelSnapshot.cs</ProjectItem>
+</Folder>
+<Folder Name="Repositories" TargetFolderName="Repositories">
+<Folder Name="Auth" TargetFolderName="Auth">
+<ProjectItem ReplaceParameters="true" TargetFileName="ActionInRoleRepo.cs">ActionInRoleRepo.cs</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="ActionRepo.cs">ActionRepo.cs</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="RoleRepo.cs">RoleRepo.cs</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="UserInRoleRepo.cs">UserInRoleRepo.cs</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="UserRepo.cs">UserRepo.cs</ProjectItem>
+</Folder>
+<Folder Name="Base" TargetFolderName="Base">
+<ProjectItem ReplaceParameters="true" TargetFileName="PersonRepo.cs">PersonRepo.cs</ProjectItem>
+</Folder>
+</Folder>
+<Folder Name="UnitOfWork" TargetFolderName="UnitOfWork">
+<ProjectItem ReplaceParameters="true" TargetFileName="AuthUnitOfWork.cs">AuthUnitOfWork.cs</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="EfUnitOfWork.cs">EfUnitOfWork.cs</ProjectItem>
+</Folder>
+<ProjectItem ReplaceParameters="true" TargetFileName="Eagle.EFDataAccess.csproj">Eagle.EFDataAccess.csproj</ProjectItem>
+</Project
+></TemplateContent>
+</VSTemplate>

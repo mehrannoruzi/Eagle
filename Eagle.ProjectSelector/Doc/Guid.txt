@@ -1,0 +1,11 @@
+1- close all vs windows
+2- set ExportTemplate as startup project
+3- run it(ctrl+f5) and select all projects you whant and click go
+4- set TemplateGenerator as startup project
+5- run it(ctrl+f5)
+6- a new vs windows should appear and you can see Gnu Project in projects wizard of vs
+7- select it and give the name and path and press create
+8- correct db connection string and create database for new project
+9- write update-database command in vs terminal and press enter
+10- run db seed for current info after that you can login
+11- then give me two :)

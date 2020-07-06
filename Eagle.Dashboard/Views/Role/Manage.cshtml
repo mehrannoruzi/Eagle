@@ -1,0 +1,16 @@
+﻿@model PagingListDetails<Role>
+@{
+    ViewBag.Title = $"{Strings.Management} {Eagle.Domain.Resources.Strings.Role}";
+    Layout = "_LayoutManage";
+}
+@section styles{
+    <link href="@Url.Content("~/Styles/App/Role/manage.css")" rel="stylesheet" />
+}
+
+@section filter{
+    <partial name="Partials/_Filters" model="new RoleSearchFilter()" />
+}
+<partial name="Partials/_List" model="@Model" />
+@section scripts{
+    <script src="@Url.Content("~/Scripts/App/01-Admin/Role/manage.js")"></script>
+}

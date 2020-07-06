@@ -1,0 +1,13 @@
+﻿@model PagingListDetails<Eagle.Domain.Action>
+@{
+    ViewBag.Title = $"{Strings.Management} {Eagle.Domain.Resources.Strings.Action}";
+    Layout = "_LayoutManage";
+}
+
+@section filter{
+    <partial name="Partials/_Filters" model="new ActionSearchFilter()" />
+}
+<partial name="Partials/_List" model="@Model" />
+@section scripts{
+    <script src="@Url.Content("~/Scripts/App/01-Admin/Action/manage.js")"></script>
+}

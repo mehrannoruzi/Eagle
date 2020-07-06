@@ -1,0 +1,22 @@
+<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+<TemplateData>
+<Name>DependencyResolver</Name>
+<Description>&lt;Hillavas Eagle Base Project In .Net Core&gt;</Description>
+<ProjectType>CSharp</ProjectType>
+<ProjectSubType></ProjectSubType>
+<SortOrder>1</SortOrder>
+<CreateNewFolder>true</CreateNewFolder>
+<DefaultName>DependencyResolver</DefaultName>
+<ProvideDefaultName>true</ProvideDefaultName>
+<LocationField>Enabled</LocationField>
+<Hidden>true</Hidden>
+<EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+<CreateInPlace>true</CreateInPlace>
+</TemplateData>
+<TemplateContent>
+<Project TargetFileName="$ext_safeprojectname$.DependencyResolver.csproj" File="Eagle.DependencyResolver.csproj" ReplaceParameters="true">
+<ProjectItem ReplaceParameters="true" TargetFileName="Eagle.DependencyResolver.csproj">Eagle.DependencyResolver.csproj</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="ServiceCollectionExtension.cs">ServiceCollectionExtension.cs</ProjectItem>
+</Project
+></TemplateContent>
+</VSTemplate>
