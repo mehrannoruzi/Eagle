@@ -9,8 +9,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Eagle.Constant\Eagle.Constant.csproj" />
-    <ProjectReference Include="..\Eagle.EFDataAccess\Eagle.EFDataAccess.csproj" />
+    <ProjectReference Include="..\Eagle.DataAccess.Ef\Eagle.DataAccess.Ef.csproj" />
+    <ProjectReference Include="..\Eagle.InfraStructure\Eagle.InfraStructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>

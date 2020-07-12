@@ -2,7 +2,7 @@
 using System.Linq;
 using Eagle.Domain;
 using Eagle.Service;
-using Elk.AspNetCore.Mvc;
+using Elk.AspNetCore;
 using System.Threading.Tasks;
 using Eagle.Dashboard.Models;
 using Microsoft.AspNetCore.Mvc;

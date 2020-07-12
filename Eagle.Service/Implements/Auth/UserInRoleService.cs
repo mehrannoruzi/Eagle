@@ -2,7 +2,7 @@
 using Elk.Core;
 using System.Linq;
 using Eagle.Domain;
-using Eagle.EFDataAccess;
+using Eagle.DataAccess.Ef;
 using System.Threading.Tasks;
 using Eagle.Service.Resourses;
 using System.Linq.Expressions;

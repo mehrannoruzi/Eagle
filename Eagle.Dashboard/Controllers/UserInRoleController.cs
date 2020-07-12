@@ -3,7 +3,7 @@ using Elk.Core;
 using System.Linq;
 using Eagle.Domain;
 using Eagle.Service;
-using Elk.AspNetCore.Mvc;
+using Elk.AspNetCore;
 using Eagle.Dashboard.Models;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;

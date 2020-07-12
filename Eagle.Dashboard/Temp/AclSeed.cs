@@ -2,7 +2,7 @@
 using Elk.Core;
 using System.Linq;
 using Eagle.Domain;
-using Eagle.EFDataAccess;
+using Eagle.DataAccess.Ef;
 using System.Collections.Generic;
 
 namespace Eagle.Dashboard

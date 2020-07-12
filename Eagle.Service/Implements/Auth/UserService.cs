@@ -4,8 +4,8 @@ using Elk.Cache;
 using System.Text;
 using System.Linq;
 using Eagle.Domain;
-using Eagle.Constant;
-using Eagle.EFDataAccess;
+using Eagle.DataAccess.Ef;
+using Eagle.InfraStructure;
 using System.Threading.Tasks;
 using System.Linq.Expressions;
 using Eagle.Service.Resourses;
@@ -177,7 +177,7 @@ namespace Eagle.Service
 
         public async Task<MenuModel> GetAvailableActions(Guid userId, List<MenuSPModel> spResult = null, string urlPrefix = "")
         {
-            var userMenu = (MenuModel)_cache.Get(CacheSettings.GetMenuModelKey(userId));
+            var userMenu = (MenuModel)_cache.Get(GlobalVariables.CacheSettings.GetMenuModelKey(userId));
             if (userMenu != null) return userMenu;
 
             userMenu = new MenuModel();
@@ -232,7 +232,7 @@ namespace Eagle.Service
             userMenu.Menu = GetAvailableMenu(spResult, urlPrefix);
             userMenu.ActionList = userActions;
 
-            _cache.Add(CacheSettings.GetMenuModelKey(userId), userMenu, DateTime.Now.AddMinutes(30));
+            _cache.Add(GlobalVariables.CacheSettings.GetMenuModelKey(userId), userMenu, DateTime.Now.AddMinutes(30));
             return userMenu;
         }
 

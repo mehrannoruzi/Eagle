@@ -1,9 +1,8 @@
-﻿using Eagle.FileManagerAdapter.Domain;
+﻿using System;
 using Elk.Core;
-using System;
 using System.IO;
-using System.Net.Http;
 using System.Text;
+using System.Net.Http;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Http;
 
@@ -72,6 +71,5 @@ namespace Eagle.FileManagerAdapter
             }
 
         }
-
     }
 }

@@ -1,14 +1,13 @@
 ﻿using System;
 using Elk.Core;
+using Elk.Cache;
 using Eagle.Domain;
 using Eagle.Service;
-using Elk.Cache;
-using Eagle.Constant;
-using Elk.AspNetCore.Mvc;
-using Eagle.EFDataAccess;
+using Elk.AspNetCore;
+using Eagle.DataAccess.Ef;
+using Eagle.InfraStructure;
 using System.Threading.Tasks;
 using System.Security.Claims;
-using Eagle.Dashboard.Models;
 using Microsoft.AspNetCore.Mvc;
 using Eagle.Dashboard.Resources;
 using Microsoft.AspNetCore.Http;
@@ -96,7 +95,7 @@ namespace Eagle.Dashboard.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
-                cache.Remove(CacheSettings.GetMenuModelKey(User.GetUserId()));
+                cache.Remove(GlobalVariables.CacheSettings.GetMenuModelKey(User.GetUserId()));
                 await _httpAccessor.HttpContext.SignOutAsync();
             }
 
