@@ -79,11 +79,29 @@ namespace Eagle.Domain.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to اپلیکیشن.
+        /// </summary>
+        public static string Application {
+            get {
+                return ResourceManager.GetString("Application", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to تکرار گذرواژه.
         /// </summary>
         public static string ConfirmPassword {
             get {
                 return ResourceManager.GetString("ConfirmPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to متن.
+        /// </summary>
+        public static string Content {
+            get {
+                return ResourceManager.GetString("Content", resourceCulture);
             }
         }
         
@@ -151,11 +169,29 @@ namespace Eagle.Domain.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to فعال است؟.
+        /// </summary>
+        public static string IsActive {
+            get {
+                return ResourceManager.GetString("IsActive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to پیشفرض.
         /// </summary>
         public static string IsDefault {
             get {
                 return ResourceManager.GetString("IsDefault", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to قفل شده است؟.
+        /// </summary>
+        public static string IsLock {
+            get {
+                return ResourceManager.GetString("IsLock", resourceCulture);
             }
         }
         
@@ -286,6 +322,24 @@ namespace Eagle.Domain.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to گیرنده.
+        /// </summary>
+        public static string Receiver {
+            get {
+                return ResourceManager.GetString("Receiver", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to نام گیرنده.
+        /// </summary>
+        public static string ReciverName {
+            get {
+                return ResourceManager.GetString("ReciverName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to مرا بخاطر بسپار.
         /// </summary>
         public static string RememberMe {
@@ -313,11 +367,65 @@ namespace Eagle.Domain.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to تاریخ ارسال.
+        /// </summary>
+        public static string SendDate {
+            get {
+                return ResourceManager.GetString("SendDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to وضعیت ارسال.
+        /// </summary>
+        public static string SendStatus {
+            get {
+                return ResourceManager.GetString("SendStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to نمایش در منو.
         /// </summary>
         public static string ShowInMenu {
             get {
                 return ResourceManager.GetString("ShowInMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to وضعیت.
+        /// </summary>
+        public static string Status {
+            get {
+                return ResourceManager.GetString("Status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to توکن دسترسی.
+        /// </summary>
+        public static string Token {
+            get {
+                return ResourceManager.GetString("Token", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to تعداد تلاش.
+        /// </summary>
+        public static string TryCount {
+            get {
+                return ResourceManager.GetString("TryCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to نوع.
+        /// </summary>
+        public static string Type {
+            get {
+                return ResourceManager.GetString("Type", resourceCulture);
             }
         }
         
@@ -336,6 +444,15 @@ namespace Eagle.Domain.Resources {
         public static string Username {
             get {
                 return ResourceManager.GetString("Username", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to آی پی های معتبر (,).
+        /// </summary>
+        public static string ValidIp {
+            get {
+                return ResourceManager.GetString("ValidIp", resourceCulture);
             }
         }
         
