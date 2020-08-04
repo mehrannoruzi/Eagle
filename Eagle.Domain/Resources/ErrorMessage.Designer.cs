@@ -59,5 +59,59 @@ namespace Eagle.Domain.Resources {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to شماره کارت وارد شده صحیح نمی باشد.
+        /// </summary>
+        public static string CardNumberFormat {
+            get {
+                return ResourceManager.GetString("CardNumberFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to شماره موبایل صحیح نیست.
+        /// </summary>
+        public static string InvalidMobileNumber {
+            get {
+                return ResourceManager.GetString("InvalidMobileNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to لطفا بیشتر از {1} کاراکتر وارد نکنید.
+        /// </summary>
+        public static string MaxLength {
+            get {
+                return ResourceManager.GetString("MaxLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to لطفا کمتر از {1} کاراکتر وارد نکنید.
+        /// </summary>
+        public static string MinLength {
+            get {
+                return ResourceManager.GetString("MinLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to این فیلد اجباری است.
+        /// </summary>
+        public static string Required {
+            get {
+                return ResourceManager.GetString("Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ایمیل وارد شده صحیح نمی باشد.
+        /// </summary>
+        public static string WrongEmailFormat {
+            get {
+                return ResourceManager.GetString("WrongEmailFormat", resourceCulture);
+            }
+        }
     }
 }
