@@ -15,15 +15,9 @@ $(document).ready(function () {
         let $elm = $(this);
         showModal({
             $elm: $elm,
-            beforeFunc: function () {
-                ajaxActionLink.inProgress($elm);
-            },
-            afterFunc: function () {
-                ajaxActionLink.normal();
-            },
-            errorFunc: function () {
-                ajaxActionLink.normal();
-            }
+            beforeFunc: function () { ajaxActionLink.inProgress($elm); },
+            afterFunc: function () { ajaxActionLink.normal(); },
+            errorFunc: function () { ajaxActionLink.normal(); }
         });
     });
 

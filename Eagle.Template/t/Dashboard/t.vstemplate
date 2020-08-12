@@ -29,7 +29,7 @@
 </Folder>
 <Folder Name="Models" TargetFolderName="Models">
 <ProjectItem ReplaceParameters="true" TargetFileName="Modal.cs">Modal.cs</ProjectItem>
-<ProjectItem ReplaceParameters="true" TargetFileName="SignInModel.cs">SignInModel.cs</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="SingleUploaderModel.cs">SingleUploaderModel.cs</ProjectItem>
 </Folder>
 <Folder Name="Properties" TargetFolderName="Properties">
 <ProjectItem ReplaceParameters="true" TargetFileName="launchSettings.json">launchSettings.json</ProjectItem>
@@ -54,20 +54,21 @@
 <Folder Name="ActionInRole" TargetFolderName="ActionInRole">
 <Folder Name="Partials" TargetFolderName="Partials">
 <ProjectItem ReplaceParameters="true" TargetFileName="_Entity.cshtml">_Entity.cshtml</ProjectItem>
-<ProjectItem ReplaceParameters="true" TargetFileName="_ListViaAction.cshtml">_ListViaAction.cshtml</ProjectItem>
-<ProjectItem ReplaceParameters="true" TargetFileName="_ListViaRole.cshtml">_ListViaRole.cshtml</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="_ListByAction.cshtml">_ListByAction.cshtml</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="_ListByRole.cshtml">_ListByRole.cshtml</ProjectItem>
 </Folder>
 </Folder>
 <Folder Name="Auth" TargetFolderName="Auth">
 <Folder Name="Partials" TargetFolderName="Partials">
 <ProjectItem ReplaceParameters="true" TargetFileName="_NewPassword.cshtml">_NewPassword.cshtml</ProjectItem>
 </Folder>
+<ProjectItem ReplaceParameters="true" TargetFileName="ChangePassword.cshtml">ChangePassword.cshtml</ProjectItem>
 <ProjectItem ReplaceParameters="true" TargetFileName="RecoverPasswrod.cshtml">RecoverPasswrod.cshtml</ProjectItem>
 <ProjectItem ReplaceParameters="true" TargetFileName="SignIn.cshtml">SignIn.cshtml</ProjectItem>
 <ProjectItem ReplaceParameters="true" TargetFileName="_Layout.cshtml">_Layout.cshtml</ProjectItem>
 </Folder>
 <Folder Name="Error" TargetFolderName="Error">
-<ProjectItem ReplaceParameters="true" TargetFileName="Details.cshtml">Details.cshtml</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="Index.cshtml">Index.cshtml</ProjectItem>
 </Folder>
 <Folder Name="Role" TargetFolderName="Role">
 <Folder Name="Partials" TargetFolderName="Partials">
@@ -90,6 +91,7 @@
 <ProjectItem ReplaceParameters="true" TargetFileName="_Modal.cshtml">_Modal.cshtml</ProjectItem>
 <ProjectItem ReplaceParameters="true" TargetFileName="_Navbar.cshtml">_Navbar.cshtml</ProjectItem>
 <ProjectItem ReplaceParameters="true" TargetFileName="_Pagination.cshtml">_Pagination.cshtml</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="_SingleUploader.cshtml">_SingleUploader.cshtml</ProjectItem>
 </Folder>
 <ProjectItem ReplaceParameters="true" TargetFileName="_Layout.cshtml">_Layout.cshtml</ProjectItem>
 <ProjectItem ReplaceParameters="true" TargetFileName="_LayoutManage.cshtml">_LayoutManage.cshtml</ProjectItem>
@@ -143,24 +145,26 @@
 <ProjectItem ReplaceParameters="true" TargetFileName="video.png">video.png</ProjectItem>
 </Folder>
 <ProjectItem ReplaceParameters="true" TargetFileName="chosen-sprite.png">chosen-sprite.png</ProjectItem>
-<ProjectItem ReplaceParameters="true" TargetFileName="green.png">green.png</ProjectItem>
 <ProjectItem ReplaceParameters="true" TargetFileName="loadover.png">loadover.png</ProjectItem>
 <ProjectItem ReplaceParameters="true" TargetFileName="logo.png">logo.png</ProjectItem>
 <ProjectItem ReplaceParameters="true" TargetFileName="marker.png">marker.png</ProjectItem>
 <ProjectItem ReplaceParameters="true" TargetFileName="no-image.jpeg">no-image.jpeg</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="square.png">square.png</ProjectItem>
 <ProjectItem ReplaceParameters="true" TargetFileName="user.png">user.png</ProjectItem>
 </Folder>
 <Folder Name="Scripts" TargetFolderName="Scripts">
 <Folder Name="App" TargetFolderName="App">
+<Folder Name="01-Admin" TargetFolderName="01-Admin">
 <Folder Name="Action" TargetFolderName="Action">
 <ProjectItem ReplaceParameters="true" TargetFileName="manage.js">manage.js</ProjectItem>
+</Folder>
+<Folder Name="Role" TargetFolderName="Role">
+<ProjectItem ReplaceParameters="true" TargetFileName="manage.js">manage.js</ProjectItem>
+</Folder>
 </Folder>
 <Folder Name="Auth" TargetFolderName="Auth">
 <ProjectItem ReplaceParameters="true" TargetFileName="recover-password.js">recover-password.js</ProjectItem>
 <ProjectItem ReplaceParameters="true" TargetFileName="signin.js">signin.js</ProjectItem>
-</Folder>
-<Folder Name="Role" TargetFolderName="Role">
-<ProjectItem ReplaceParameters="true" TargetFileName="manage.js">manage.js</ProjectItem>
 </Folder>
 <ProjectItem ReplaceParameters="true" TargetFileName="app.js">app.js</ProjectItem>
 <ProjectItem ReplaceParameters="true" TargetFileName="app.min.js">app.min.js</ProjectItem>
@@ -234,6 +238,8 @@
 <ProjectItem ReplaceParameters="true" TargetFileName="appsettings.Development.json">appsettings.Development.json</ProjectItem>
 <ProjectItem ReplaceParameters="true" TargetFileName="appsettings.json">appsettings.json</ProjectItem>
 <ProjectItem ReplaceParameters="true" TargetFileName="bundleconfig.json">bundleconfig.json</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="compilerconfig.json">compilerconfig.json</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="compilerconfig.json.defaults">compilerconfig.json.defaults</ProjectItem>
 <ProjectItem ReplaceParameters="true" TargetFileName="Eagle.Dashboard.csproj">Eagle.Dashboard.csproj</ProjectItem>
 <ProjectItem ReplaceParameters="true" TargetFileName="Program.cs">Program.cs</ProjectItem>
 <ProjectItem ReplaceParameters="true" TargetFileName="Startup.cs">Startup.cs</ProjectItem>

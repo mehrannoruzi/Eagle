@@ -56,8 +56,8 @@ var showModal = function ({ $elm, beforeFunc, afterFunc, errorFunc }) {
     if (elmIsActionBtn) ajaxBtn.inProgress($elm);
     $.get($elm.data('url'))
         .done(function (rep) {
-            console.log(rep);
             if (elmIsActionBtn) ajaxBtn.normal();
+            else if (typeof afterFunc === 'function') afterFunc();
             if (!rep.IsSuccessful) {
                 showNotif(notifyType.danger, rep.Message);
                 return;
@@ -82,9 +82,8 @@ var showModal = function ({ $elm, beforeFunc, afterFunc, errorFunc }) {
 
             $.validator.unobtrusive.parse($modal);
             $modal.modal('show');
+            //fireGlobalPlugins();
 
-
-            if (typeof afterFunc === 'function') afterFunc();
         })
         .fail(function (e) {
             if (elmIsActionBtn) ajaxBtn.normal();

@@ -1,8 +1,8 @@
 using Elk.Core;
+using Elk.Http;
 using $ext_safeprojectname$.Domain;
 using $ext_safeprojectname$.Service;
 using Elk.AspNetCore;
-using Elk.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using $ext_safeprojectname$.Dashboard.Models;
 using Microsoft.AspNetCore.Mvc;

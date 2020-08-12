@@ -14,12 +14,12 @@ namespace $ext_safeprojectname$.Service
         Task<IResponse<bool>> DeleteAsync(Guid userId);
         Task<IResponse<User>> FindAsync(Guid userId);
 
-
         Task<MenuModel> GetAvailableActions(Guid userId, List<MenuSPModel> spResult = null, string urlPrefix = "");
-        Task<IResponse<User>> Authenticate(string username, string password);
+        Task<IResponse<(User user, bool forceChangePassword)>> Authenticate(string email, string password);
         void SignOut(Guid userId);
         PagingListDetails<User> Get(UserSearchFilter filter);
         IDictionary<object, object> Search(string query, int take = 10);
         Task<IResponse<string>> RecoverPassword(string username, string from, EmailMessage model);
+        Task<IResponse<User>> ChangePassword(ChangePasswordModel model);
     }
 }

@@ -20,7 +20,7 @@ namespace $ext_safeprojectname$.Dashboard.Components
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var rep = await _userSrv.GetAvailableActions(HttpContext.User.GetUserId(), null, _configuration.GetValue<string>(UrlPrefixKey));
+            var rep = await(_userSrv.GetAvailableActions(HttpContext.User.GetUserId(), null, _configuration.GetValue<string>(UrlPrefixKey)));
             return View(rep);
         }
     }

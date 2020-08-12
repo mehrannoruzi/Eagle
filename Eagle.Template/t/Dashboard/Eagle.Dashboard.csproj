@@ -4,7 +4,20 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <WarningLevel>0</WarningLevel>
+  </PropertyGroup>
+
   <ItemGroup>
+    <Content Remove="compilerconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="compilerconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="compilerconfig.json" />
     <None Include="Views\Shared\_Layout.cshtml" />
     <None Include="Views\Shared\_ValidationScriptsPartial.cshtml" />
     <None Include="Views\_ViewImports.cshtml" />
@@ -14,12 +27,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="BuildBundlerMinifier" Version="3.2.435" />
-    <PackageReference Include="Elk.AspNetCore.Mvc" Version="1.0.8" />
+    <PackageReference Include="BuildBundlerMinifier" Version="3.2.449" />
+    <PackageReference Include="Elk.AspNetCore" Version="1.1.3" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\$ext_safeprojectname$.DataAccess.Ef\$ext_safeprojectname$.DataAccess.Ef.csproj" />
     <ProjectReference Include="..\$ext_safeprojectname$.DependencyResolver\$ext_safeprojectname$.DependencyResolver.csproj" />
+    <ProjectReference Include="..\$ext_safeprojectname$.InfraStructure\$ext_safeprojectname$.InfraStructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>

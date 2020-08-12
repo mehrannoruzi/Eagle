@@ -2,7 +2,7 @@ using System;
 using Elk.Core;
 using System.Linq;
 using $ext_safeprojectname$.Domain;
-using $ext_safeprojectname$.EFDataAccess;
+using $ext_safeprojectname$.DataAccess.Ef;
 using System.Threading.Tasks;
 using System.Linq.Expressions;
 using $ext_safeprojectname$.Service.Resourses;
@@ -31,7 +31,7 @@ namespace $ext_safeprojectname$.Service
         public async Task<IResponse<Role>> UpdateAsync(Role model)
         {
             var findedRole = await _uow.RoleRepo.FindAsync(model.RoleId);
-            if (findedRole == null) return new Response<Role> { Message = Strings.RecordNotExist.Fill(DomainStrings.Role) };
+            if (findedRole == null) return new Response<Role> { Message = ServiceStrings.RecordNotExist.Fill(DomainStrings.Role) };
 
             findedRole.Enabled = model.Enabled;
             findedRole.RoleNameFa = model.RoleNameFa;
@@ -56,7 +56,7 @@ namespace $ext_safeprojectname$.Service
         public async Task<IResponse<Role>> FindAsync(int roleId)
         {
             var findedRole = await _uow.RoleRepo.FindAsync(roleId);
-            if (findedRole == null) return new Response<Role> { Message = Strings.RecordNotExist.Fill(DomainStrings.Role) };
+            if (findedRole == null) return new Response<Role> { Message = ServiceStrings.RecordNotExist.Fill(DomainStrings.Role) };
             
             return new Response<Role> { Result = findedRole, IsSuccessful = true };
         }
@@ -67,9 +67,9 @@ namespace $ext_safeprojectname$.Service
             if (filter != null)
             {
                 if (!string.IsNullOrWhiteSpace(filter.RoleNameFaF))
-                    conditions = x => x.RoleNameFa.Contains(filter.RoleNameFaF);
+                    conditions = conditions.And(x => x.RoleNameFa.Contains(filter.RoleNameFaF));
                 if (!string.IsNullOrWhiteSpace(filter.RoleNameEnF))
-                    conditions = x => x.RoleNameEn.Contains(filter.RoleNameEnF);
+                    conditions = conditions.And(x => x.RoleNameEn.Contains(filter.RoleNameEnF));
             }
 
             return _uow.RoleRepo.Get(conditions, filter, x => x.OrderByDescending(i => i.RoleId));

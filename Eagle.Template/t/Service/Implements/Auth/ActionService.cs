@@ -2,7 +2,7 @@ using System;
 using Elk.Core;
 using System.Linq;
 using $ext_safeprojectname$.Domain;
-using $ext_safeprojectname$.EFDataAccess;
+using $ext_safeprojectname$.DataAccess.Ef;
 using System.Threading.Tasks;
 using $ext_safeprojectname$.Service.Resourses;
 using System.Linq.Expressions;
@@ -33,7 +33,7 @@ namespace $ext_safeprojectname$.Service
         public async Task<IResponse<Action>> UpdateAsync(Action model)
         {
             var findedAction = await _uow.ActionRepo.FindAsync(model.ActionId);
-            if (findedAction == null) return new Response<Action> { Message = Strings.RecordNotExist.Fill(DomainStrings.Action) };
+            if (findedAction == null) return new Response<Action> { Message = ServiceStrings.RecordNotExist.Fill(DomainStrings.Action) };
 
             findedAction.Name = model.Name;
             findedAction.Icon = model.Icon;
@@ -60,12 +60,12 @@ namespace $ext_safeprojectname$.Service
 
         public async Task<IResponse<Action>> FindAsync(int actionId)
         {
-            var findedAction = await _uow.ActionRepo.FindAsync(actionId);
-            if (findedAction == null) return new Response<Action> { Message = Strings.RecordNotExist.Fill(DomainStrings.Action) };
+            var findedAction = await _uow.ActionRepo.FirstOrDefaultAsync(x => x.ActionId == actionId, new List<Expression<Func<Domain.Action, object>>> { i => i.Parent });
+            if (findedAction == null) return new Response<Action> { Message = ServiceStrings.RecordNotExist.Fill(DomainStrings.Action) };
             return new Response<Action> { Result = findedAction, IsSuccessful = true };
         }
 
-        public IDictionary<object, object> Get(bool justParents = false) 
+        public IDictionary<object, object> Get(bool justParents = false)
             => _uow.ActionRepo.Get(x => !justParents || (x.ControllerName == null && x.ActionName == null),
                 x => x.OrderByDescending(a => a.ActionId))
                 .ToDictionary(k => (object)k.ActionId, v => (object)$"{v.Name}({v.ControllerName}/{v.ActionName})");
@@ -76,22 +76,21 @@ namespace $ext_safeprojectname$.Service
             if (filter != null)
             {
                 if (!string.IsNullOrWhiteSpace(filter.NameF))
-                    conditions = x => x.Name.Contains(filter.NameF);
+                    conditions = conditions.And(x => x.Name.Contains(filter.NameF));
                 if (!string.IsNullOrWhiteSpace(filter.ActionNameF))
-                    conditions = x => x.ActionName.Contains(filter.ActionNameF.ToLower());
+                    conditions = conditions.And(x => x.ActionName.Contains(filter.ActionNameF.ToLower()));
                 if (!string.IsNullOrWhiteSpace(filter.ControllerNameF))
-                    conditions = x => x.ControllerName.Contains(filter.ControllerNameF.ToLower());
+                    conditions = conditions.And(x => x.ControllerName.Contains(filter.ControllerNameF.ToLower()));
             }
 
-            return _uow.ActionRepo.Get(conditions, filter, x => x.OrderByDescending(u => u.ActionId));
+            return _uow.ActionRepo.Get(conditions, filter, x => x.OrderByDescending(u => u.ActionId), new List<Expression<Func<Domain.Action, object>>> { x => x.Parent });
         }
 
         public IDictionary<object, object> Search(string searchParameter, int take = 10)
-            => _uow.ActionRepo.Get(x => x.Name.Contains(searchParameter))
-            .Union(_uow.ActionRepo.Get(x => x.ControllerName.Contains(searchParameter) || x.ActionName.Contains(searchParameter)))
-            .OrderByDescending(x => x.Name)
-            .Take(take)
-            .ToDictionary(k => (object)k.ActionId, v => (object)$"{v.Name}(/{v.ControllerName}/{v.ActionName})");
+       => _uow.ActionRepo.Get(conditions: x => x.Name.Contains(searchParameter) || x.ControllerName.Contains(searchParameter) || x.ActionName.Contains(searchParameter), o => o.OrderByDescending(x => x.ActionId))
+       //.OrderByDescending(x => x.Name)
+       .Take(take)
+       .ToDictionary(k => (object)k.ActionId, v => (object)$"{v.Name}({(string.IsNullOrWhiteSpace(v.ControllerName) ? "" : v.ControllerName + "/" + v.ActionName)})");
     }
 }
 

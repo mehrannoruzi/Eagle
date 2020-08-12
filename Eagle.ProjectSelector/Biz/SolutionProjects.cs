@@ -12,11 +12,9 @@ namespace Eagle.ProjectSelector
 {
     public static class SolutionProjects
     {
-
-
         public static string[] included = new string[] { 
             "Eagle.Service",
-            "Eagle.EFDataAccess",
+            "Eagle.DataAccess.Ef",
             "Eagle.DependencyResolver",
             "Eagle.Domain",
             "Eagle.Infrustructure" };
@@ -49,7 +47,8 @@ namespace Eagle.ProjectSelector
                     {
                         Index = ++idx,
                         SolutionFolder = project.Name,
-                        Name = x.Name.Split(new char[] { '.' }).Reverse().First(),
+                        //Name = x.Name.Split(new char[] { '.' }).Reverse().First(),
+                        Name = x.Name.Replace("Eagle.",""),
                         Path = Directory.GetParent(x.FullName).FullName,
                         Selected = included.Any(p => p == x.Name)
                     }));

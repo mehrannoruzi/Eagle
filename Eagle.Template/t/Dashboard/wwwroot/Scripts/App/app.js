@@ -56,8 +56,8 @@ var showModal = function ({ $elm, beforeFunc, afterFunc, errorFunc }) {
     if (elmIsActionBtn) ajaxBtn.inProgress($elm);
     $.get($elm.data('url'))
         .done(function (rep) {
-            console.log(rep);
             if (elmIsActionBtn) ajaxBtn.normal();
+            else if (typeof afterFunc === 'function') afterFunc();
             if (!rep.IsSuccessful) {
                 showNotif(notifyType.danger, rep.Message);
                 return;
@@ -82,9 +82,8 @@ var showModal = function ({ $elm, beforeFunc, afterFunc, errorFunc }) {
 
             $.validator.unobtrusive.parse($modal);
             $modal.modal('show');
+            //fireGlobalPlugins();
 
-
-            if (typeof afterFunc === 'function') afterFunc();
         })
         .fail(function (e) {
             if (elmIsActionBtn) ajaxBtn.normal();
@@ -108,15 +107,9 @@ $(document).ready(function () {
         let $elm = $(this);
         showModal({
             $elm: $elm,
-            beforeFunc: function () {
-                ajaxActionLink.inProgress($elm);
-            },
-            afterFunc: function () {
-                ajaxActionLink.normal();
-            },
-            errorFunc: function () {
-                ajaxActionLink.normal();
-            }
+            beforeFunc: function () { ajaxActionLink.inProgress($elm); },
+            afterFunc: function () { ajaxActionLink.normal(); },
+            errorFunc: function () { ajaxActionLink.normal(); }
         });
     });
 
@@ -517,8 +510,8 @@ var fireGlobalPlugins = function () {
     });
 
     $('.i-checks').iCheck({
-        checkboxClass: 'icheckbox_square-green',
-        radioClass: 'iradio_square-green',
+        checkboxClass: 'icheckbox_square',
+        radioClass: 'iradio_square'
     });
 
     $('.pdate').Zebra_DatePicker();
@@ -806,7 +799,7 @@ $(document).ready(function () {
         $('nav ul.nav > li:not(".nav-header")  a:not([href="#"])').each(function () {
             var linkUrl = $(this).attr('href');
             if (currentUrl.endsWith(linkUrl.toLowerCase().split('?')[0])) {
-                $(this).closest('li').addClass('active').closest('.link-parent').addClass('active');
+                $(this).closest('li').addClass('active current').closest('.link-parent').addClass('active');
                 let $parentUl = $(this).closest('ul.nav-second-level');
                 if ($parentUl.length > 0) {
                     $parentUl.addClass('in');
@@ -991,8 +984,9 @@ var submitAjaxForm = function ($btn, successFunc, errorFunc, useToastr) {
     let $frm = $btn.closest('form');
     if (!$frm.valid()) return;
     ajaxBtn.inProgress($btn);
-
-    $.post($frm.attr('action'), $frm.serialize())
+    let model = customSerialize($frm, true);
+    console.log(model);
+    $.post($frm.attr('action'), model)
         .done(function (rep) {
             if (rep.IsSuccessful) {
                 if (successFunc && typeof successFunc === 'function') successFunc(rep);
@@ -1113,34 +1107,59 @@ $(document).ajaxError(function (event, jqxhr, settings, thrownError) {
     }
     catch (e) { console.log(e); }
 });
-
-var customSerialize = function ($wrapper) {
+/*--------------------------------------
+           custom serialize
+---------------------------------------*/
+var customSerialize = function ($wrapper, checkNumbers) {
     let model = {};
+    let checkNumberValue = function (v) {
+        if (checkNumbers && !isNaN(v) && v !== '') return parseInt(v);
+        else return v;
+    };
+    let valueSetter = function (name, v) {
+        let arr = name.split('.');
+        for (let idx = 0; idx < arr.length - 1; idx++) {
+            let leftAssign = 'model.' + arr.slice(0, idx + 1).join('.');
+            if (idx === arr.length) {
+                eval(leftAssign + '=' + v);
+                break;
+            }
+            eval(leftAssign + '=' + leftAssign + '?' + leftAssign + ':{}');
+        }
+        let fullLeftAssign = 'model.' + arr.join('.');
+        if (typeof eval(fullLeftAssign) === 'undefined') eval(fullLeftAssign + ' = v');
+        else if (Array.isArray(eval(fullLeftAssign))) eval(fullLeftAssign + '.push(v)');
+        else eval(fullLeftAssign + ' = [' + fullLeftAssign + ', v]');
+    };
     $wrapper.find('input:not([type="checkbox"]):not([type="radio"]),select,textarea').each(function () {
-        model[$(this).attr('name')] = $(this).val();
+        let name = $(this).attr('name');
+        if (typeof name !== 'undefined') {
+            let v = checkNumberValue($(this).val());
+            console.log(v);
+            valueSetter(name, v);
+        }
+
     });
 
     $wrapper.find('input[type="checkbox"],input[type="radio"]').each(function () {
         let name = $(this).attr('name');
-        let val = $(this).attr('value').toLowerCase();
-        if (!val || val === 'true' || val === 'false') val = $(this).prop('checked');
-        if (!model[name]) {
-            model[name] = val;
-        }
-        else {
-            if (Array.isArray(model[name])) model[name].push(val);
-            else model[name] = [model[name], val];
+        if (typeof name !== 'undefined') {
+            let val = $(this).attr('value').toLowerCase();
+            if (!val || val === 'true' || val === 'false') val = $(this).prop('checked');
+            valueSetter(name, val);
         }
     });
     return model;
 };
 
-var postObjectList = function ({ url, model, success, error }) {
+var postObjectList = function (url, model, success, error) {
+    console.log('model5:');
+    console.log(JSON.stringify(model));
     $.ajax({
+        type: 'POST',
         url: url,
-        data: model,
-        method: 'post',
-        contentType: 'application/json; charset=utf-8;',
+        contentType: 'application/json; charset=utf-8',
+        data: JSON.stringify(model),
         success: function (rep) { if (success) success(rep); },
         error: function (e) { if (error) error(e); }
     });
@@ -1226,4 +1245,34 @@ var convertToOptionTags = function (items, isNullable) {
         return total + ('<option value="' + x.Value + '">' + x.Text + '</option>');
     }, $optTags);
     return $optTags;
+};
+
+var objectToFormData = function (obj, form, namespace) {
+
+    var fd = form || new FormData();
+    var formKey;
+
+    for (var property in obj) {
+        if (obj.hasOwnProperty(property)) {
+
+            if (namespace) {
+                formKey = namespace + '[' + property + ']';
+            } else {
+                formKey = property;
+            }
+            if (typeof obj[property] === 'object' && !(obj[property] instanceof File)) {
+
+                objectToFormData(obj[property], fd, property);
+
+            } else {
+
+                // if it's a string or a File object
+                fd.append(formKey, obj[property]);
+            }
+
+        }
+    }
+
+    return fd;
+
 };

@@ -6,7 +6,7 @@ namespace $ext_safeprojectname$.Dashboard.Controllers
     public class ErrorController : Controller
     {
 
-        public IActionResult Details(int code)
+        public IActionResult Index(int code)
         {
             //var statusCodeData = HttpContext.Features.Get<IStatusCodeReExecuteFeature>();
             var context = HttpContext.Features.Get<IExceptionHandlerFeature>();

@@ -1,6 +1,7 @@
+using Elk.Http;
 using System.Linq;
-using Elk.AspNetCore;
-using $ext_safeprojectname$.EFDataAccess;
+//using Elk.AspNetCore;
+using $ext_safeprojectname$.DataAccess.Ef;
 using $ext_safeprojectname$.DependencyResolver;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Builder;
@@ -25,7 +26,7 @@ namespace $ext_safeprojectname$.Dashboard
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews().AddJsonOptions(opts => opts.JsonSerializerOptions.PropertyNamingPolicy = null);
-            services.AddContext<EfDbContext>(_config.GetConnectionString("EfDbContext"));
+            services.AddContext<AppDbContext>(_config.GetConnectionString("EfDbContext"));
             services.AddContext<AuthDbContext>(_config.GetConnectionString("AuthDbContext"));
 
             services.AddMemoryCache();
@@ -40,6 +41,10 @@ namespace $ext_safeprojectname$.Dashboard
             services.AddTransient(_config);
             services.AddScoped(_config);
             services.AddSingleton(_config);
+            services.AddAntiforgery(options =>
+            {
+                options.HeaderName = "X-CSRF-TOKEN"; //may be any other valid header name
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -70,7 +75,8 @@ namespace $ext_safeprojectname$.Dashboard
                     var statusCode = context.Response.StatusCode;
                     if (handled == null && statusCode >= 400)
                     {
-                        context.Response.Redirect($"/Error/Details?code={statusCode}");
+                        if(statusCode==403) context.Response.Redirect($"/Auth/SignIn");
+                        else context.Response.Redirect($"/Error/Index?code={statusCode}");
                     }
                 }
 

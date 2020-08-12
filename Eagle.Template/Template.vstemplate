@@ -12,29 +12,40 @@
 </TemplateData>
 <TemplateContent>
 <ProjectCollection>
-<SolutionFolder Name="01-Domain">
+<SolutionFolder Name="02-Domain">
 <ProjectTemplateLink ProjectName="$safeprojectname$.Domain" CopyParameters="true">
 t\Domain\t.vstemplate
 </ProjectTemplateLink>
 </SolutionFolder>
-<SolutionFolder Name="02-DataAccess">
-<ProjectTemplateLink ProjectName="$safeprojectname$.EFDataAccess" CopyParameters="true">
-t\EFDataAccess\t.vstemplate
+<SolutionFolder Name="03-DataAccess">
+<ProjectTemplateLink ProjectName="$safeprojectname$.DataAccess.Ef" CopyParameters="true">
+t\DataAccess.Ef\t.vstemplate
+</ProjectTemplateLink>
+<ProjectTemplateLink ProjectName="$safeprojectname$.DataAccess.Dapper" CopyParameters="true">
+t\DataAccess.Dapper\t.vstemplate
 </ProjectTemplateLink>
 </SolutionFolder>
-<SolutionFolder Name="03-Service">
+<SolutionFolder Name="05-Service">
 <ProjectTemplateLink ProjectName="$safeprojectname$.Service" CopyParameters="true">
 t\Service\t.vstemplate
 </ProjectTemplateLink>
 </SolutionFolder>
-<SolutionFolder Name="04-Dependency Resolver">
+<SolutionFolder Name="06-DependencyResolver">
 <ProjectTemplateLink ProjectName="$safeprojectname$.DependencyResolver" CopyParameters="true">
 t\DependencyResolver\t.vstemplate
 </ProjectTemplateLink>
 </SolutionFolder>
-<SolutionFolder Name="06-End Points">
+<SolutionFolder Name="07-EndPoints">
 <ProjectTemplateLink ProjectName="$safeprojectname$.Dashboard" CopyParameters="true">
 t\Dashboard\t.vstemplate
+</ProjectTemplateLink>
+<ProjectTemplateLink ProjectName="$safeprojectname$.Api" CopyParameters="true">
+t\Api\t.vstemplate
+</ProjectTemplateLink>
+</SolutionFolder>
+<SolutionFolder Name="01-Shared">
+<ProjectTemplateLink ProjectName="$safeprojectname$.InfraStructure" CopyParameters="true">
+t\InfraStructure\t.vstemplate
 </ProjectTemplateLink>
 </SolutionFolder>
 </ProjectCollection>

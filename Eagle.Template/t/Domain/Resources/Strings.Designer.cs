@@ -79,6 +79,33 @@ namespace $ext_safeprojectname$.Domain.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to اپلیکیشن.
+        /// </summary>
+        public static string Application {
+            get {
+                return ResourceManager.GetString("Application", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to تکرار گذرواژه.
+        /// </summary>
+        public static string ConfirmPassword {
+            get {
+                return ResourceManager.GetString("ConfirmPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to متن.
+        /// </summary>
+        public static string Content {
+            get {
+                return ResourceManager.GetString("Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to نام کنترلر.
         /// </summary>
         public static string ControllerName {
@@ -102,6 +129,15 @@ namespace $ext_safeprojectname$.Domain.Resources {
         public static string Enabled {
             get {
                 return ResourceManager.GetString("Enabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to تغییر گذرواژه اجباری می باشد.
+        /// </summary>
+        public static string ForcedChangePassword {
+            get {
+                return ResourceManager.GetString("ForcedChangePassword", resourceCulture);
             }
         }
         
@@ -133,11 +169,29 @@ namespace $ext_safeprojectname$.Domain.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to فعال است؟.
+        /// </summary>
+        public static string IsActive {
+            get {
+                return ResourceManager.GetString("IsActive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to پیشفرض.
         /// </summary>
         public static string IsDefault {
             get {
                 return ResourceManager.GetString("IsDefault", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to قفل شده است؟.
+        /// </summary>
+        public static string IsLock {
+            get {
+                return ResourceManager.GetString("IsLock", resourceCulture);
             }
         }
         
@@ -156,6 +210,24 @@ namespace $ext_safeprojectname$.Domain.Resources {
         public static string MaxLength {
             get {
                 return ResourceManager.GetString("MaxLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to حداقل کاراکتر مجاز 5  و حداکثر {1} می باشد..
+        /// </summary>
+        public static string Min5MaxLength {
+            get {
+                return ResourceManager.GetString("Min5MaxLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to لطفا کمتر از {1} کاراکتر وارد ننمایید.
+        /// </summary>
+        public static string MinLength {
+            get {
+                return ResourceManager.GetString("MinLength", resourceCulture);
             }
         }
         
@@ -232,11 +304,47 @@ namespace $ext_safeprojectname$.Domain.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to گذرواژه ها همخوانی ندارند.
+        /// </summary>
+        public static string PasswordsNotMatched {
+            get {
+                return ResourceManager.GetString("PasswordsNotMatched", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to مسیر.
         /// </summary>
         public static string Path {
             get {
                 return ResourceManager.GetString("Path", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to گیرنده.
+        /// </summary>
+        public static string Receiver {
+            get {
+                return ResourceManager.GetString("Receiver", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to نام گیرنده.
+        /// </summary>
+        public static string ReciverName {
+            get {
+                return ResourceManager.GetString("ReciverName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to مرا بخاطر بسپار.
+        /// </summary>
+        public static string RememberMe {
+            get {
+                return ResourceManager.GetString("RememberMe", resourceCulture);
             }
         }
         
@@ -259,11 +367,65 @@ namespace $ext_safeprojectname$.Domain.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to تاریخ ارسال.
+        /// </summary>
+        public static string SendDate {
+            get {
+                return ResourceManager.GetString("SendDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to وضعیت ارسال.
+        /// </summary>
+        public static string SendStatus {
+            get {
+                return ResourceManager.GetString("SendStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to نمایش در منو.
         /// </summary>
         public static string ShowInMenu {
             get {
                 return ResourceManager.GetString("ShowInMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to وضعیت.
+        /// </summary>
+        public static string Status {
+            get {
+                return ResourceManager.GetString("Status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to توکن دسترسی.
+        /// </summary>
+        public static string Token {
+            get {
+                return ResourceManager.GetString("Token", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to تعداد تلاش.
+        /// </summary>
+        public static string TryCount {
+            get {
+                return ResourceManager.GetString("TryCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to نوع.
+        /// </summary>
+        public static string Type {
+            get {
+                return ResourceManager.GetString("Type", resourceCulture);
             }
         }
         
@@ -282,6 +444,15 @@ namespace $ext_safeprojectname$.Domain.Resources {
         public static string Username {
             get {
                 return ResourceManager.GetString("Username", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to آی پی های معتبر (,).
+        /// </summary>
+        public static string ValidIp {
+            get {
+                return ResourceManager.GetString("ValidIp", resourceCulture);
             }
         }
         

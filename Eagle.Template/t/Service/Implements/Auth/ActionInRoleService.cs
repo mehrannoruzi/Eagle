@@ -2,7 +2,7 @@ using System;
 using Elk.Core;
 using System.Linq;
 using $ext_safeprojectname$.Domain;
-using $ext_safeprojectname$.EFDataAccess;
+using $ext_safeprojectname$.DataAccess.Ef;
 using System.Threading.Tasks;
 using $ext_safeprojectname$.Service.Resourses;
 using System.Linq.Expressions;
@@ -22,12 +22,13 @@ namespace $ext_safeprojectname$.Service
         public async Task<IResponse<ActionInRole>> AddAsync(ActionInRole model)
         {
             if (await _uow.ActionInRoleRepo.AnyAsync(x => x.RoleId == model.RoleId && x.ActionId == model.ActionId))
-                return new Response<ActionInRole> { Message = Strings.DuplicateRecord, IsSuccessful = false };
+                return new Response<ActionInRole> { Message = ServiceStrings.DuplicateRecord, IsSuccessful = false };
 
             if (model.IsDefault)
             {
-                var existActionInRole = await _uow.ActionInRoleRepo.FirstOrDefaultAsync(x => x.RoleId == model.RoleId && x.IsDefault);
-                existActionInRole.IsDefault = false;
+                var existActionInRole = await _uow.ActionInRoleRepo.FirstOrDefaultAsync(conditions: x => x.RoleId == model.RoleId && x.IsDefault);
+                if (existActionInRole != null)
+                    existActionInRole.IsDefault = false;
             }
 
             await _uow.ActionInRoleRepo.AddAsync(model);

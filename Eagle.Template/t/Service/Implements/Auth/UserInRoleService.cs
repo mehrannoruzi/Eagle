@@ -2,7 +2,7 @@ using System;
 using Elk.Core;
 using System.Linq;
 using $ext_safeprojectname$.Domain;
-using $ext_safeprojectname$.EFDataAccess;
+using $ext_safeprojectname$.DataAccess.Ef;
 using System.Threading.Tasks;
 using $ext_safeprojectname$.Service.Resourses;
 using System.Linq.Expressions;
@@ -23,7 +23,7 @@ namespace $ext_safeprojectname$.Service
         public async Task<IResponse<UserInRole>> Add(UserInRole model)
         {
             if (await _uow.UserInRoleRepo.AnyAsync(x => x.UserId == model.UserId && x.RoleId == model.RoleId))
-                return new Response<UserInRole> { Message = Strings.DuplicateRecord, IsSuccessful = false };
+                return new Response<UserInRole> { Message = ServiceStrings.DuplicateRecord, IsSuccessful = false };
 
             await _uow.UserInRoleRepo.AddAsync(model);
             var saveResult = await _uow.ElkSaveChangesAsync();

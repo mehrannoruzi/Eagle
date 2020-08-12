@@ -2,7 +2,7 @@ using Elk.Core;
 using System.Linq;
 using $ext_safeprojectname$.Domain;
 using $ext_safeprojectname$.Service;
-using Elk.AspNetCore.Mvc;
+using Elk.AspNetCore;
 using System.Threading.Tasks;
 using $ext_safeprojectname$.Dashboard.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -50,7 +50,7 @@ namespace $ext_safeprojectname$.Dashboard.Controllers
             return Json(new Response<string>
             {
                 IsSuccessful = true,
-                Result = ControllerExtension.RenderViewToString(this, "Partials/_ListViaAction", getRep)
+                Result = ControllerExtension.RenderViewToString(this, "Partials/_ListByAction", getRep)
             });
         }
 
@@ -58,15 +58,15 @@ namespace $ext_safeprojectname$.Dashboard.Controllers
         public virtual async Task<JsonResult> Delete(int id) => Json(await _actionInRoleSrv.DeleteAsync(id));
 
         [HttpGet, AuthEqualTo("ActionInRole", "Add")]
-        public virtual PartialViewResult GetViaAction(int actionId) => PartialView("Partials/_ListViaAction", _actionInRoleSrv.GetViaAction(actionId));
+        public virtual PartialViewResult GetByAction(int actionId) => PartialView("Partials/_ListByAction", _actionInRoleSrv.GetViaAction(actionId));
 
         [HttpGet, AuthEqualTo("ActionInRole", "Add")]
-        public virtual async Task<JsonResult> GetViaRole(int roleId) 
+        public virtual async Task<JsonResult> GetByRole(int roleId) 
             => Json(new Modal
             {
                 IsSuccessful = true,
                 Title = $"{DomainString.Action}",
-                Body = await ControllerExtension.RenderViewToStringAsync(this, "Partials/_ListViaRole", _actionInRoleSrv.GetViaRole(roleId)),
+                Body = await ControllerExtension.RenderViewToStringAsync(this, "Partials/_ListByRole", _actionInRoleSrv.GetViaRole(roleId)),
                 AutoSubmitUrl = Url.Action("Add", "Action"),
                 AutoSubmit = false
             });

@@ -1,0 +1,54 @@
+<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+<TemplateData>
+<Name>DataAccess.Ef</Name>
+<Description>&lt;Hillavas Eagle Base Project In .Net Core&gt;</Description>
+<ProjectType>CSharp</ProjectType>
+<ProjectSubType></ProjectSubType>
+<SortOrder>1</SortOrder>
+<CreateNewFolder>true</CreateNewFolder>
+<DefaultName>DataAccess.Ef</DefaultName>
+<ProvideDefaultName>true</ProvideDefaultName>
+<LocationField>Enabled</LocationField>
+<Hidden>true</Hidden>
+<EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+<CreateInPlace>true</CreateInPlace>
+</TemplateData>
+<TemplateContent>
+<Project TargetFileName="$ext_safeprojectname$.DataAccess.Ef.csproj" File="Eagle.DataAccess.Ef.csproj" ReplaceParameters="true">
+<Folder Name="Context" TargetFolderName="Context">
+<ProjectItem ReplaceParameters="true" TargetFileName="AppDbContext.cs">AppDbContext.cs</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="AuthDbContext.cs">AuthDbContext.cs</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="DbContextInterceptors.cs">DbContextInterceptors.cs</ProjectItem>
+</Folder>
+<Folder Name="Migrations" TargetFolderName="Migrations">
+<ProjectItem ReplaceParameters="true" TargetFileName="20200122070112_init.cs">20200122070112_init.cs</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="20200122070112_init.Designer.cs">20200122070112_init.Designer.cs</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="20200627110439_RemoveSPTable.cs">20200627110439_RemoveSPTable.cs</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="20200627110439_RemoveSPTable.Designer.cs">20200627110439_RemoveSPTable.Designer.cs</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="20200628092212_AddForcedChangePassword2User.cs">20200628092212_AddForcedChangePassword2User.cs</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="20200628092212_AddForcedChangePassword2User.Designer.cs">20200628092212_AddForcedChangePassword2User.Designer.cs</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="AuthDbContextModelSnapshot.cs">AuthDbContextModelSnapshot.cs</ProjectItem>
+</Folder>
+<Folder Name="Repositories" TargetFolderName="Repositories">
+<Folder Name="Auth" TargetFolderName="Auth">
+<ProjectItem ReplaceParameters="true" TargetFileName="ActionInRoleRepo.cs">ActionInRoleRepo.cs</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="ActionRepo.cs">ActionRepo.cs</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="RoleRepo.cs">RoleRepo.cs</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="UserInRoleRepo.cs">UserInRoleRepo.cs</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="UserRepo.cs">UserRepo.cs</ProjectItem>
+</Folder>
+<Folder Name="Base" TargetFolderName="Base">
+</Folder>
+<ProjectItem ReplaceParameters="true" TargetFileName="AppGenericRepo.cs">AppGenericRepo.cs</ProjectItem>
+</Folder>
+<Folder Name="SQL" TargetFolderName="SQL">
+<ProjectItem ReplaceParameters="true" TargetFileName="GetUserMenuSP.sql">GetUserMenuSP.sql</ProjectItem>
+</Folder>
+<Folder Name="UnitOfWork" TargetFolderName="UnitOfWork">
+<ProjectItem ReplaceParameters="true" TargetFileName="AppUnitOfWork.cs">AppUnitOfWork.cs</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="AuthUnitOfWork.cs">AuthUnitOfWork.cs</ProjectItem>
+</Folder>
+<ProjectItem ReplaceParameters="true" TargetFileName="Eagle.DataAccess.Ef.csproj">Eagle.DataAccess.Ef.csproj</ProjectItem>
+</Project
+></TemplateContent>
+</VSTemplate>

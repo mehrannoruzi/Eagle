@@ -2,7 +2,7 @@ using System;
 using Elk.Core;
 using System.Linq;
 using $ext_safeprojectname$.Domain;
-using $ext_safeprojectname$.EFDataAccess;
+using $ext_safeprojectname$.DataAccess.Ef;
 using System.Collections.Generic;
 
 namespace $ext_safeprojectname$.Dashboard

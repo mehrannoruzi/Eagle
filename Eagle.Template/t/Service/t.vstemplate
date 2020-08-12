@@ -34,8 +34,8 @@
 </Folder>
 </Folder>
 <Folder Name="Resourses" TargetFolderName="Resourses">
-<ProjectItem ReplaceParameters="true" TargetFileName="Strings.Designer.cs">Strings.Designer.cs</ProjectItem>
-<ProjectItem ReplaceParameters="true" TargetFileName="Strings.resx">Strings.resx</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="serviceStrings.Designer.cs">serviceStrings.Designer.cs</ProjectItem>
+<ProjectItem ReplaceParameters="true" TargetFileName="ServiceStrings.resx">ServiceStrings.resx</ProjectItem>
 </Folder>
 <ProjectItem ReplaceParameters="true" TargetFileName="Eagle.Service.csproj">Eagle.Service.csproj</ProjectItem>
 </Project

@@ -3,7 +3,7 @@ using Elk.Core;
 using System.Linq;
 using $ext_safeprojectname$.Domain;
 using $ext_safeprojectname$.Service;
-using Elk.AspNetCore.Mvc;
+using Elk.AspNetCore;
 using $ext_safeprojectname$.Dashboard.Models;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;

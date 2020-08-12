@@ -1,0 +1,26 @@
+<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+<TemplateData>
+<Name>InfraStructure</Name>
+<Description>&lt;Hillavas Eagle Base Project In .Net Core&gt;</Description>
+<ProjectType>CSharp</ProjectType>
+<ProjectSubType></ProjectSubType>
+<SortOrder>1</SortOrder>
+<CreateNewFolder>true</CreateNewFolder>
+<DefaultName>InfraStructure</DefaultName>
+<ProvideDefaultName>true</ProvideDefaultName>
+<LocationField>Enabled</LocationField>
+<Hidden>true</Hidden>
+<EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+<CreateInPlace>true</CreateInPlace>
+</TemplateData>
+<TemplateContent>
+<Project TargetFileName="$ext_safeprojectname$.InfraStructure.csproj" File="Eagle.InfraStructure.csproj" ReplaceParameters="true">
+<Folder Name="Tools" TargetFolderName="Tools">
+</Folder>
+<Folder Name="Variable" TargetFolderName="Variable">
+<ProjectItem ReplaceParameters="true" TargetFileName="GlobalVariables.cs">GlobalVariables.cs</ProjectItem>
+</Folder>
+<ProjectItem ReplaceParameters="true" TargetFileName="Eagle.InfraStructure.csproj">Eagle.InfraStructure.csproj</ProjectItem>
+</Project
+></TemplateContent>
+</VSTemplate>

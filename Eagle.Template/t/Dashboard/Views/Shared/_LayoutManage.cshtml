@@ -44,9 +44,10 @@
                                     </div>
                                 </div>
                                 <custom-button text="@Strings.Add" 
+                                               type="button"
                                                icon="zmdi zmdi-plus"
-                                               class="btn btn-primary btn-action btn-modal m-b"
-                                                data-url="@Url.Action("Add")"></custom-button>
+                                               class="btn btn-dark btn-action btn-modal m-b"
+                                               data-url="@Url.Action("Add")"></custom-button>
                             </div>
 
                         </div>
@@ -95,8 +96,8 @@
                 </form>
 
             </div>
-            <div class="footer">
-                <div>@Html.Raw(Strings.CopyRights)</div>
+            <div class="footer text-center">
+                @Html.Raw(Strings.CopyRights)
             </div>
 
         </div>

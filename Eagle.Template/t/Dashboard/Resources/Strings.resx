@@ -145,7 +145,7 @@
     <value>بستن</value>
   </data>
   <data name="CopyRights" xml:space="preserve">
-    <value>تمام حقوق مادی و معنوی این اثر متعلق به  &lt;a href="https://www.kingofday.ir/"&gt;Kingofday.ir&lt;/a&gt; می باشد</value>
+    <value>تمام حقوق مادی و معنوی این اثر متعلق به  &lt;a href="https://www.hillavas.com/"&gt;هیلاوس&lt;/a&gt; می باشد</value>
   </data>
   <data name="CreateAccount" xml:space="preserve">
     <value>ایجاد حساب</value>
@@ -231,12 +231,6 @@
   <data name="MaxValueExceeded" xml:space="preserve">
     <value>لطفا مقداری کمتر یا مساوی با {0} وارد نمایید</value>
   </data>
-  <data name="Min5MaxLength" xml:space="preserve">
-    <value>حداقل کاراکتر مجاز 5  و حداکثر {1} می باشد.</value>
-  </data>
-  <data name="MinLength" xml:space="preserve">
-    <value>لطفا کمتر از {1} کاراکتر وارد ننمایید</value>
-  </data>
   <data name="MinLengthNotReached" xml:space="preserve">
     <value>لطفا حداقل {0} کاراکتر وارد نمایید</value>
   </data>
@@ -258,6 +252,9 @@
   <data name="Password" xml:space="preserve">
     <value>گذرواژه</value>
   </data>
+  <data name="PleaseChangeYourPassword" xml:space="preserve">
+    <value>لطفا گذرواژه خود را تغییر دهید</value>
+  </data>
   <data name="PrevPage" xml:space="preserve">
     <value>صفحه قبلی</value>
   </data>
@@ -275,9 +272,6 @@
   </data>
   <data name="RecoverPasswordHint" xml:space="preserve">
     <value>رمز جدید به ایمیل شما ارسال خواهد شد</value>
-  </data>
-  <data name="RememberMe" xml:space="preserve">
-    <value>مرا بخاطر بسپار</value>
   </data>
   <data name="Remove" xml:space="preserve">
     <value>حذف</value>

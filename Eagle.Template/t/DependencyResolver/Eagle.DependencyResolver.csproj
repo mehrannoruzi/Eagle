@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\$ext_safeprojectname$.DataAccess.Ef\$ext_safeprojectname$.DataAccess.Ef.csproj" />
     <ProjectReference Include="..\$ext_safeprojectname$.Service\$ext_safeprojectname$.Service.csproj" />
   </ItemGroup>
 
