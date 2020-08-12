@@ -9,6 +9,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Elk.EntityFrameworkCore.Tools" Version="1.1.8" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Eagle.Domain\Eagle.Domain.csproj" />
   </ItemGroup>
 

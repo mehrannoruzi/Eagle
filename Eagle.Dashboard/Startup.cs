@@ -1,6 +1,5 @@
 using Elk.Http;
 using System.Linq;
-//using Elk.AspNetCore;
 using Eagle.DataAccess.Ef;
 using Eagle.DependencyResolver;
 using Microsoft.AspNetCore.Http;

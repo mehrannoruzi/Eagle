@@ -28,11 +28,11 @@
 
   <ItemGroup>
     <PackageReference Include="BuildBundlerMinifier" Version="3.2.449" />
-    <PackageReference Include="Elk.AspNetCore" Version="1.1.3" />
+    <PackageReference Include="Elk.AspNetCore" Version="1.1.4" />
+    <PackageReference Include="Elk.Http" Version="1.1.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Eagle.DataAccess.Ef\Eagle.DataAccess.Ef.csproj" />
     <ProjectReference Include="..\Eagle.DependencyResolver\Eagle.DependencyResolver.csproj" />
     <ProjectReference Include="..\Eagle.InfraStructure\Eagle.InfraStructure.csproj" />
   </ItemGroup>

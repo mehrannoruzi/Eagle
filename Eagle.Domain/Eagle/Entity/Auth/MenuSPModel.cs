@@ -1,11 +1,12 @@
-﻿using Newtonsoft.Json;
+﻿using Elk.Core;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Eagle.Domain
 {
     [NotMapped]
-    public class MenuSPModel //: Action
+    public class MenuSPModel
     {
         public int? ParentId { get; set; }
 

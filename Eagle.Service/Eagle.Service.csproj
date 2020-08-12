@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Eagle.DataAccess.Dapper\Eagle.DataAccess.Dapper.csproj" />
     <ProjectReference Include="..\Eagle.DataAccess.Ef\Eagle.DataAccess.Ef.csproj" />
     <ProjectReference Include="..\Eagle.InfraStructure\Eagle.InfraStructure.csproj" />
   </ItemGroup>
