@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Elk.Core;
 using System.Linq;
 using Eagle.Domain;
@@ -21,12 +21,12 @@ namespace Eagle.Service
 
         public async Task<IResponse<ActionInRole>> AddAsync(ActionInRole model)
         {
-            if (await _uow.ActionInRoleRepo.AnyAsync(x => x.RoleId == model.RoleId && x.ActionId == model.ActionId))
+            if (await _uow.ActionInRoleRepo.AnyAsync(new BaseFilterModel<ActionInRole> { Conditions = x => x.RoleId == model.RoleId && x.ActionId == model.ActionId }))
                 return new Response<ActionInRole> { Message = ServiceStrings.DuplicateRecord, IsSuccessful = false };
 
             if (model.IsDefault)
             {
-                var existActionInRole = await _uow.ActionInRoleRepo.FirstOrDefaultAsync(conditions: x => x.RoleId == model.RoleId && x.IsDefault);
+                var existActionInRole = await _uow.ActionInRoleRepo.FirstOrDefaultAsync(new BaseFilterModel<ActionInRole> { Conditions = x => x.RoleId == model.RoleId && x.IsDefault });
                 if (existActionInRole != null)
                     existActionInRole.IsDefault = false;
             }
@@ -54,13 +54,21 @@ namespace Eagle.Service
         }
 
         public IEnumerable<ActionInRole> GetViaAction(int actionId) =>
-                _uow.ActionInRoleRepo.Get(x => x.ActionId == actionId,
-                x => x.OrderByDescending(air => air.ActionId),
-                new List<Expression<Func<ActionInRole, object>>> { x => x.Role }).ToList();
+                _uow.ActionInRoleRepo.Get(
+                    new ListFilterModel<ActionInRole, ActionInRole>
+                    {
+                        Conditions = x => x.ActionId == actionId,
+                        OrderBy = x => x.OrderByDescending(air => air.ActionId),
+                        IncludeProperties = new List<Expression<Func<ActionInRole, object>>> { x => x.Role }
+                    }).ToList();
 
         public IEnumerable<ActionInRole> GetViaRole(int roleId) =>
-                    _uow.ActionInRoleRepo.Get(x => x.RoleId == roleId,
-                    x => x.OrderByDescending(air => air.ActionId),
-                    new List<Expression<Func<ActionInRole, object>>> { x => x.Action }).ToList();
+                    _uow.ActionInRoleRepo.Get(
+                        new ListFilterModel<ActionInRole, ActionInRole>
+                        {
+                            Conditions = x => x.RoleId == roleId,
+                            OrderBy = x => x.OrderByDescending(air => air.ActionId),
+                            IncludeProperties = new List<Expression<Func<ActionInRole, object>>> { x => x.Action }
+                        }).ToList();
     }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Elk.Core;
 using System.Linq;
 using Eagle.Domain;
@@ -60,15 +60,24 @@ namespace Eagle.Service
 
         public async Task<IResponse<Action>> FindAsync(int actionId)
         {
-            var findedAction = await _uow.ActionRepo.FirstOrDefaultAsync(x => x.ActionId == actionId, new List<Expression<Func<Domain.Action, object>>> { i => i.Parent });
+            var findedAction = await _uow.ActionRepo.FirstOrDefaultAsync(
+                new BaseFilterModel<Action>
+                {
+                    Conditions = x => x.ActionId == actionId,
+                    IncludeProperties = new List<Expression<Func<Action, object>>> { i => i.Parent }
+                });
             if (findedAction == null) return new Response<Action> { Message = ServiceStrings.RecordNotExist.Fill(DomainStrings.Action) };
             return new Response<Action> { Result = findedAction, IsSuccessful = true };
         }
 
         public IDictionary<object, object> Get(bool justParents = false)
-            => _uow.ActionRepo.Get(x => !justParents || (x.ControllerName == null && x.ActionName == null),
-                x => x.OrderByDescending(a => a.ActionId))
-                .ToDictionary(k => (object)k.ActionId, v => (object)$"{v.Name}({v.ControllerName}/{v.ActionName})");
+            => _uow.ActionRepo.Get(
+                new ListFilterModel<Action, Action>
+                {
+                    Conditions = x => !justParents || (x.ControllerName == null && x.ActionName == null),
+                    OrderBy = x => x.OrderByDescending(a => a.ActionId),
+                })
+            .ToDictionary(k => (object)k.ActionId, v => (object)$"{v.Name}({v.ControllerName}/{v.ActionName})");
 
         public PagingListDetails<Action> Get(ActionSearchFilter filter)
         {
@@ -83,14 +92,23 @@ namespace Eagle.Service
                     conditions = conditions.And(x => x.ControllerName.Contains(filter.ControllerNameF.ToLower()));
             }
 
-            return _uow.ActionRepo.Get(conditions, filter, x => x.OrderByDescending(u => u.ActionId), new List<Expression<Func<Domain.Action, object>>> { x => x.Parent });
+            return _uow.ActionRepo.Get(
+                new BasePagedListFilterModel<Action>
+                {
+                    Conditions = conditions,
+                    OrderBy = x => x.OrderByDescending(u => u.ActionId),
+                    IncludeProperties = new List<Expression<Func<Action, object>>> { x => x.Parent }
+                });
         }
 
         public IDictionary<object, object> Search(string searchParameter, int take = 10)
-       => _uow.ActionRepo.Get(conditions: x => x.Name.Contains(searchParameter) || x.ControllerName.Contains(searchParameter) || x.ActionName.Contains(searchParameter), o => o.OrderByDescending(x => x.ActionId))
-       //.OrderByDescending(x => x.Name)
-       .Take(take)
-       .ToDictionary(k => (object)k.ActionId, v => (object)$"{v.Name}({(string.IsNullOrWhiteSpace(v.ControllerName) ? "" : v.ControllerName + "/" + v.ActionName)})");
+           => _uow.ActionRepo.Get(
+               new ListFilterModel<Action, Action>
+               {
+                   Conditions = x => x.Name.Contains(searchParameter) || x.ControllerName.Contains(searchParameter) || x.ActionName.Contains(searchParameter),
+                   OrderBy = o => o.OrderByDescending(x => x.ActionId)
+                   //OrderBy = x => x.OrderByDescending(x => x.Name),
+               }).Take(take)
+           .ToDictionary(k => (object)k.ActionId, v => (object)$"{v.Name}({(string.IsNullOrWhiteSpace(v.ControllerName) ? "" : v.ControllerName + "/" + v.ActionName)})");
     }
 }
-

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Elk.Core;
 using System.Linq;
 using Eagle.Domain;
@@ -22,7 +22,7 @@ namespace Eagle.Service
 
         public async Task<IResponse<UserInRole>> Add(UserInRole model)
         {
-            if (await _uow.UserInRoleRepo.AnyAsync(x => x.UserId == model.UserId && x.RoleId == model.RoleId))
+            if (await _uow.UserInRoleRepo.AnyAsync(new BaseFilterModel<UserInRole> { Conditions = x => x.UserId == model.UserId && x.RoleId == model.RoleId }))
                 return new Response<UserInRole> { Message = ServiceStrings.DuplicateRecord, IsSuccessful = false };
 
             await _uow.UserInRoleRepo.AddAsync(model);
@@ -47,10 +47,13 @@ namespace Eagle.Service
             };
         }
 
-        public IEnumerable<UserInRole> Get(Guid userId) 
-            => _uow.UserInRoleRepo.Get(x => x.UserId == userId,
-            x => x.OrderByDescending(uir => uir.UserId),
-            new List<Expression<Func<UserInRole, object>>> { x => x.Role }).ToList();
-
+        public IEnumerable<UserInRole> Get(Guid userId)
+            => _uow.UserInRoleRepo.Get(
+                new ListFilterModel<UserInRole, UserInRole>
+                {
+                    Conditions = x => x.UserId == userId,
+                    OrderBy = x => x.OrderByDescending(uir => uir.UserId),
+                    IncludeProperties = new List<Expression<Func<UserInRole, object>>> { x => x.Role }
+                }).ToList();
     }
 }

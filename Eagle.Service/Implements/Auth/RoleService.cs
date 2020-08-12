@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Elk.Core;
 using System.Linq;
 using Eagle.Domain;
@@ -36,7 +36,7 @@ namespace Eagle.Service
             findedRole.Enabled = model.Enabled;
             findedRole.RoleNameFa = model.RoleNameFa;
             findedRole.RoleNameEn = model.RoleNameEn;
-            
+
             var saveResult = _uow.ElkSaveChangesAsync();
             return new Response<Role> { Result = findedRole, IsSuccessful = saveResult.Result.IsSuccessful, Message = saveResult.Result.Message };
         }
@@ -57,7 +57,7 @@ namespace Eagle.Service
         {
             var findedRole = await _uow.RoleRepo.FindAsync(roleId);
             if (findedRole == null) return new Response<Role> { Message = ServiceStrings.RecordNotExist.Fill(DomainStrings.Role) };
-            
+
             return new Response<Role> { Result = findedRole, IsSuccessful = true };
         }
 
@@ -72,7 +72,12 @@ namespace Eagle.Service
                     conditions = conditions.And(x => x.RoleNameEn.Contains(filter.RoleNameEnF));
             }
 
-            return _uow.RoleRepo.Get(conditions, filter, x => x.OrderByDescending(i => i.RoleId));
+            return _uow.RoleRepo.Get(
+                new BasePagedListFilterModel<Role>
+                {
+                    Conditions = conditions,
+                    OrderBy = x => x.OrderByDescending(i => i.RoleId)
+                });
         }
     }
 }
