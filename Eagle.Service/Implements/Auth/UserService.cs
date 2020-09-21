@@ -98,7 +98,7 @@ namespace Eagle.Service
 
         public async Task<IResponse<(User user, bool forceChangePassword)>> Authenticate(string email, string password)
         {
-            var user = await _userRepo.FirstOrDefaultAsync(new BaseFilterModel<User> { Conditions = x => x.Email == email });
+            var user = await _userRepo.FirstOrDefaultAsync(new QueryFilter<User> { Conditions = x => x.Email == email });
             if (user == null) return new Response<(User, bool)> { Message = ServiceStrings.InvalidUsernameOrPassword };
             if (!user.Enabled) return new Response<(User, bool)> { Message = ServiceStrings.AccountIsBlocked };
             if (user.ForcedChangePassword) return new Response<(User user, bool forceChangePassword)> { IsSuccessful = true, Result = (user, true) };
@@ -123,7 +123,7 @@ namespace Eagle.Service
 
         public async Task<IResponse<User>> ChangePassword(ChangePasswordModel model)
         {
-            var user = await _userRepo.FirstOrDefaultAsync(new BaseFilterModel<User> { Conditions = x => x.Email == model.Username });
+            var user = await _userRepo.FirstOrDefaultAsync(new QueryFilter<User> { Conditions = x => x.Email == model.Username });
             if (user == null) return new Response<User> { Message = ServiceStrings.InvalidUsernameOrPassword };
             if (!user.Enabled) return new Response<User> { Message = ServiceStrings.AccountIsBlocked };
             var hashedPassword = HashGenerator.Hash(model.Password);
@@ -256,8 +256,7 @@ namespace Eagle.Service
                     conditions = conditions.And(x => x.MobileNumber.ToString().Contains(filter.MobileNumberF));
             }
 
-            return _uow.UserRepo.Get(
-                new BasePagedListFilterModel<User>
+            return _uow.UserRepo.GetPaging(new PagingQueryFilter<User>
                 {
                     Conditions = conditions,
                     OrderBy = x => x.OrderByDescending(u => u.InsertDateMi)
@@ -265,8 +264,7 @@ namespace Eagle.Service
         }
 
         public IDictionary<object, object> Search(string searchParameter, int take = 10)
-            => _userRepo.Get(
-                new PagedListFilterModel<User, dynamic>
+            => _userRepo.GetPaging(new PagingQueryFilterWithSelector<User, dynamic>
                 {
                     Conditions = x => x.FullName.Contains(searchParameter) || x.Email.Contains(searchParameter),
                     PagingParameter = new PagingParameter { PageNumber = 1, PageSize = take },
@@ -276,7 +274,7 @@ namespace Eagle.Service
 
         public async Task<IResponse<string>> RecoverPassword(string username, string from, EmailMessage model)
         {
-            var user = await _uow.UserRepo.FirstOrDefaultAsync(new BaseFilterModel<User> { Conditions = x => x.Email == username });
+            var user = await _uow.UserRepo.FirstOrDefaultAsync(new QueryFilter<User> { Conditions = x => x.Email == username });
             if (user == null) return new Response<string> { Message = ServiceStrings.RecordNotExist.Fill(DomainStrings.User) };
 
             var newPassword = Randomizer.GetUniqueKey(6);

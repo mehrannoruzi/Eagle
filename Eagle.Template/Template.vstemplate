@@ -1,57 +1,22 @@
 <VSTemplate Version="3.0.0" Type="ProjectGroup" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
-<TemplateData>
-<Name>Eagle Asp.Net Core Project</Name>
-<Description>Eagle Base Project</Description>
-<Icon>eagle.png</Icon>
-<ProjectType>CSharp</ProjectType>
-<SortOrder>1010</SortOrder>
-<TemplateID>64a58ed4-427f-4225-aa26-05481c4dc8bb</TemplateID>
-<CreateNewFolder>true</CreateNewFolder>
-<DefaultName>Eagle.Project</DefaultName>
-<ProvideDefaultName>true</ProvideDefaultName>
-</TemplateData>
-<TemplateContent>
-<ProjectCollection>
-<SolutionFolder Name="02-Domain">
-<ProjectTemplateLink ProjectName="$safeprojectname$.Domain" CopyParameters="true">
-t\Domain\t.vstemplate
-</ProjectTemplateLink>
-</SolutionFolder>
-<SolutionFolder Name="03-DataAccess">
-<ProjectTemplateLink ProjectName="$safeprojectname$.DataAccess.Ef" CopyParameters="true">
-t\DataAccess.Ef\t.vstemplate
-</ProjectTemplateLink>
-<ProjectTemplateLink ProjectName="$safeprojectname$.DataAccess.Dapper" CopyParameters="true">
-t\DataAccess.Dapper\t.vstemplate
-</ProjectTemplateLink>
-</SolutionFolder>
-<SolutionFolder Name="05-Service">
-<ProjectTemplateLink ProjectName="$safeprojectname$.Service" CopyParameters="true">
-t\Service\t.vstemplate
-</ProjectTemplateLink>
-</SolutionFolder>
-<SolutionFolder Name="06-DependencyResolver">
-<ProjectTemplateLink ProjectName="$safeprojectname$.DependencyResolver" CopyParameters="true">
-t\DependencyResolver\t.vstemplate
-</ProjectTemplateLink>
-</SolutionFolder>
-<SolutionFolder Name="07-EndPoints">
-<ProjectTemplateLink ProjectName="$safeprojectname$.Dashboard" CopyParameters="true">
-t\Dashboard\t.vstemplate
-</ProjectTemplateLink>
-<ProjectTemplateLink ProjectName="$safeprojectname$.Api" CopyParameters="true">
-t\Api\t.vstemplate
-</ProjectTemplateLink>
-</SolutionFolder>
-<SolutionFolder Name="01-Shared">
-<ProjectTemplateLink ProjectName="$safeprojectname$.InfraStructure" CopyParameters="true">
-t\InfraStructure\t.vstemplate
-</ProjectTemplateLink>
-</SolutionFolder>
-</ProjectCollection>
-</TemplateContent>
-<WizardExtension>
-                        <Assembly>Eagle.ProjectLauncher, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=4d7a128da4bbdbe9</Assembly>
-                        <FullClassName>Eagle.ProjectLauncher.WizardImplementation</FullClassName>
-                    </WizardExtension>
-                   </VSTemplate>
+  <TemplateData>
+    <Name>Eagle Asp.Net Core Project</Name>
+    <Description>Eagle Base Project</Description>
+    <Icon>eagle.png</Icon>
+    <ProjectType>CSharp</ProjectType>
+    <SortOrder>1010</SortOrder>
+    <TemplateID>64a58ed4-427f-4225-aa26-05481c4dc8bb</TemplateID>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>Eagle.Project</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+  </TemplateData>
+  <TemplateContent>
+    <ProjectCollection>
+
+    </ProjectCollection>
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>Eagle.ProjectLauncher, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=4d7a128da4bbdbe9</Assembly>
+    <FullClassName>Eagle.ProjectLauncher.WizardImplementation</FullClassName>
+  </WizardExtension>
+</VSTemplate>

@@ -43,7 +43,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eagle.DataAccess.Ef", "Eagl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eagle.DataAccess.Dapper", "Eagle.DataAccess.Dapper\Eagle.DataAccess.Dapper.csproj", "{D23ECE22-43BF-49BB-A6D6-276277829519}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eagle.Api", "Eagle.Api\Eagle.Api.csproj", "{1965CFFD-65AA-4B23-9341-9A9CC838B62A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eagle.Api", "Eagle.Api\Eagle.Api.csproj", "{1965CFFD-65AA-4B23-9341-9A9CC838B62A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "10-Notifier", "10-Notifier", "{C0407BDA-9757-455C-9D8A-56C1F73E0C86}"
 EndProject
@@ -55,15 +55,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04-DependencyResolver", "04
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05-EndPoints", "05-EndPoints", "{D68A2DE1-FFCE-4383-8E5E-9953E12B9391}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eagle.Notifier.DataAccess.Ef", "Eagle.Notifier.DataAccess.Ef\Eagle.Notifier.DataAccess.Ef.csproj", "{776F1931-5F9A-4775-9E7E-0A46615877DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eagle.Notifier.DataAccess.Ef", "Eagle.Notifier.DataAccess.Ef\Eagle.Notifier.DataAccess.Ef.csproj", "{776F1931-5F9A-4775-9E7E-0A46615877DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eagle.Notifier.DataAccess.Dapper", "Eagle.Notifier.DataAccess.Dapper\Eagle.Notifier.DataAccess.Dapper.csproj", "{03928195-A617-48C4-8B93-BA1B0828288F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eagle.Notifier.DataAccess.Dapper", "Eagle.Notifier.DataAccess.Dapper\Eagle.Notifier.DataAccess.Dapper.csproj", "{03928195-A617-48C4-8B93-BA1B0828288F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eagle.Notifier.Service", "Eagle.Notifier.Service\Eagle.Notifier.Service.csproj", "{3C6246B6-8974-464C-B9A8-179B07FA3F89}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eagle.Notifier.Service", "Eagle.Notifier.Service\Eagle.Notifier.Service.csproj", "{3C6246B6-8974-464C-B9A8-179B07FA3F89}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eagle.Notifier.DependencyResolver", "Eagle.Notifier.DependencyResolver\Eagle.Notifier.DependencyResolver.csproj", "{BB3DCA1F-4A0E-4C09-85F1-819F73AB81B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eagle.Notifier.DependencyResolver", "Eagle.Notifier.DependencyResolver\Eagle.Notifier.DependencyResolver.csproj", "{BB3DCA1F-4A0E-4C09-85F1-819F73AB81B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eagle.Notifier.Api", "Eagle.Notifier.Api\Eagle.Notifier.Api.csproj", "{D8A30B13-B24F-45BF-8C0F-5F5B7FCD580B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eagle.Notifier.Api", "Eagle.Notifier.Api\Eagle.Notifier.Api.csproj", "{D8A30B13-B24F-45BF-8C0F-5F5B7FCD580B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eagle.Portal", "Eagle.Portal\Eagle.Portal.csproj", "{D9D9ACB9-36F2-4642-A7A0-5E97EDB48FA2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -143,6 +145,10 @@ Global
 		{D8A30B13-B24F-45BF-8C0F-5F5B7FCD580B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8A30B13-B24F-45BF-8C0F-5F5B7FCD580B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8A30B13-B24F-45BF-8C0F-5F5B7FCD580B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9D9ACB9-36F2-4642-A7A0-5E97EDB48FA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9D9ACB9-36F2-4642-A7A0-5E97EDB48FA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9D9ACB9-36F2-4642-A7A0-5E97EDB48FA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9D9ACB9-36F2-4642-A7A0-5E97EDB48FA2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -170,6 +176,7 @@ Global
 		{3C6246B6-8974-464C-B9A8-179B07FA3F89} = {39FF548D-15C6-4374-A456-94B127ADE599}
 		{BB3DCA1F-4A0E-4C09-85F1-819F73AB81B8} = {E48A5310-2570-40A1-98FA-718C9E7C6A9A}
 		{D8A30B13-B24F-45BF-8C0F-5F5B7FCD580B} = {D68A2DE1-FFCE-4383-8E5E-9953E12B9391}
+		{D9D9ACB9-36F2-4642-A7A0-5E97EDB48FA2} = {BDD47D61-375F-4565-A27D-04BA67D7B196}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C05664E4-4DE7-43BE-BC33-296FEEECF19D}

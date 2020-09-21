@@ -22,7 +22,7 @@ namespace Eagle.Service
 
         public async Task<IResponse<UserInRole>> Add(UserInRole model)
         {
-            if (await _uow.UserInRoleRepo.AnyAsync(new BaseFilterModel<UserInRole> { Conditions = x => x.UserId == model.UserId && x.RoleId == model.RoleId }))
+            if (await _uow.UserInRoleRepo.AnyAsync(new QueryFilter<UserInRole> { Conditions = x => x.UserId == model.UserId && x.RoleId == model.RoleId }))
                 return new Response<UserInRole> { Message = ServiceStrings.DuplicateRecord, IsSuccessful = false };
 
             await _uow.UserInRoleRepo.AddAsync(model);
@@ -49,7 +49,7 @@ namespace Eagle.Service
 
         public IEnumerable<UserInRole> Get(Guid userId)
             => _uow.UserInRoleRepo.Get(
-                new ListFilterModel<UserInRole, UserInRole>
+                new QueryFilter<UserInRole>
                 {
                     Conditions = x => x.UserId == userId,
                     OrderBy = x => x.OrderByDescending(uir => uir.UserId),

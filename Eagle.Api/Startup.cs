@@ -54,7 +54,7 @@ namespace Eagle.Api
 
             services.AddMemoryCache();
 
-            services.AddSwagger(_swaggerSetting);
+            services.AddElkSwagger(_swaggerSetting);
 
             services.AddTransient(_config);
             services.AddScoped(_config);
@@ -82,7 +82,7 @@ namespace Eagle.Api
 
             app.UseAuthorization();
 
-            app.UseSwaggerConfiguration(_swaggerSetting);
+            app.UseElkSwaggerConfiguration(_swaggerSetting);
 
             app.UseMvcWithDefaultRoute();
         }

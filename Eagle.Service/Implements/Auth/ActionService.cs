@@ -61,7 +61,7 @@ namespace Eagle.Service
         public async Task<IResponse<Action>> FindAsync(int actionId)
         {
             var findedAction = await _uow.ActionRepo.FirstOrDefaultAsync(
-                new BaseFilterModel<Action>
+                new QueryFilter<Domain.Action>
                 {
                     Conditions = x => x.ActionId == actionId,
                     IncludeProperties = new List<Expression<Func<Action, object>>> { i => i.Parent }
@@ -72,7 +72,7 @@ namespace Eagle.Service
 
         public IDictionary<object, object> Get(bool justParents = false)
             => _uow.ActionRepo.Get(
-                new ListFilterModel<Action, Action>
+                new QueryFilter<Action>
                 {
                     Conditions = x => !justParents || (x.ControllerName == null && x.ActionName == null),
                     OrderBy = x => x.OrderByDescending(a => a.ActionId),
@@ -92,22 +92,20 @@ namespace Eagle.Service
                     conditions = conditions.And(x => x.ControllerName.Contains(filter.ControllerNameF.ToLower()));
             }
 
-            return _uow.ActionRepo.Get(
-                new BasePagedListFilterModel<Action>
+            return _uow.ActionRepo.GetPaging(new PagingQueryFilter<Action>
                 {
                     Conditions = conditions,
+                    PagingParameter = filter,
                     OrderBy = x => x.OrderByDescending(u => u.ActionId),
                     IncludeProperties = new List<Expression<Func<Action, object>>> { x => x.Parent }
                 });
         }
 
         public IDictionary<object, object> Search(string searchParameter, int take = 10)
-           => _uow.ActionRepo.Get(
-               new ListFilterModel<Action, Action>
+           => _uow.ActionRepo.Get(new QueryFilter<Domain.Action>
                {
                    Conditions = x => x.Name.Contains(searchParameter) || x.ControllerName.Contains(searchParameter) || x.ActionName.Contains(searchParameter),
                    OrderBy = o => o.OrderByDescending(x => x.ActionId)
-                   //OrderBy = x => x.OrderByDescending(x => x.Name),
                }).Take(take)
            .ToDictionary(k => (object)k.ActionId, v => (object)$"{v.Name}({(string.IsNullOrWhiteSpace(v.ControllerName) ? "" : v.ControllerName + "/" + v.ActionName)})");
     }

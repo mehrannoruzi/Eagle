@@ -72,8 +72,7 @@ namespace Eagle.Service
                     conditions = conditions.And(x => x.RoleNameEn.Contains(filter.RoleNameEnF));
             }
 
-            return _uow.RoleRepo.Get(
-                new BasePagedListFilterModel<Role>
+            return _uow.RoleRepo.GetPaging(new PagingQueryFilter<Role>
                 {
                     Conditions = conditions,
                     OrderBy = x => x.OrderByDescending(i => i.RoleId)

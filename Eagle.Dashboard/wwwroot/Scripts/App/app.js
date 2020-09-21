@@ -984,7 +984,7 @@ var submitAjaxForm = function ($btn, successFunc, errorFunc, useToastr) {
     let $frm = $btn.closest('form');
     if (!$frm.valid()) return;
     ajaxBtn.inProgress($btn);
-    let model = customSerialize($frm, true);
+    let model = createModel($frm, true);
     console.log(model);
     $.post($frm.attr('action'), model)
         .done(function (rep) {
@@ -1110,43 +1110,37 @@ $(document).ajaxError(function (event, jqxhr, settings, thrownError) {
 /*--------------------------------------
            custom serialize
 ---------------------------------------*/
-var customSerialize = function ($wrapper, checkNumbers) {
-    let model = {};
+var createModel = function ($wrapper, checkNumbers) {
+    var model = {};
     let checkNumberValue = function (v) {
         if (checkNumbers && !isNaN(v) && v !== '') return parseInt(v);
         else return v;
     };
-    let valueSetter = function (name, v) {
+    function valueSetter(obj, name, v) {
         let arr = name.split('.');
-        for (let idx = 0; idx < arr.length - 1; idx++) {
-            let leftAssign = 'model.' + arr.slice(0, idx + 1).join('.');
-            if (idx === arr.length) {
-                eval(leftAssign + '=' + v);
-                break;
-            }
-            eval(leftAssign + '=' + leftAssign + '?' + leftAssign + ':{}');
+        if (arr.length > 1)
+            valueSetter(obj[arr[0]], arr.splice(1, arr.length - 1).join('.'), v);
+        if (typeof obj[name] !== 'undefined') {
+            if (Array.isArray(obj[name])) obj[name].push(v);
+            else obj[name] = [obj[name], v];
         }
-        let fullLeftAssign = 'model.' + arr.join('.');
-        if (typeof eval(fullLeftAssign) === 'undefined') eval(fullLeftAssign + ' = v');
-        else if (Array.isArray(eval(fullLeftAssign))) eval(fullLeftAssign + '.push(v)');
-        else eval(fullLeftAssign + ' = [' + fullLeftAssign + ', v]');
+        else obj[name] = v;
     };
     $wrapper.find('input:not([type="checkbox"]):not([type="radio"]),select,textarea').each(function () {
         let name = $(this).attr('name');
         if (typeof name !== 'undefined') {
             let v = checkNumberValue($(this).val());
-            console.log(v);
-            valueSetter(name, v);
+            valueSetter(model, name, v);
         }
 
     });
 
-    $wrapper.find('input[type="checkbox"],input[type="radio"]').each(function () {
+    $wrapper.find('input[type="checkbox"],input[type="radio"]:Checked').each(function () {
         let name = $(this).attr('name');
         if (typeof name !== 'undefined') {
-            let val = $(this).attr('value').toLowerCase();
+            let val = $(this).attr('value');
             if (!val || val === 'true' || val === 'false') val = $(this).prop('checked');
-            valueSetter(name, val);
+            valueSetter(model, name, val);
         }
     });
     return model;
